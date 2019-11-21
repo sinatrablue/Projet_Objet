@@ -11,4 +11,5 @@ class Rapport
     void set_Mdp(std::string mdp);
     Rapport(std::string, std::string);
     ~Rapport();
+    //bool operator==(const Rapport &r);
 };

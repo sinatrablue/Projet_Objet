@@ -64,6 +64,13 @@ void Patient::affiche(){
 
 Patient::~Patient(){}
 
+// surchage ==
+bool Patient::operator==(const Patient &p)
+{
+    return(this->nom==p.nom && this->prenom==p.prenom && this->age==p.age);
+}
+
+
 
 /*
 void patient::ajouter(string nom, string prenom, int age, char sexe){

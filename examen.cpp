@@ -71,3 +71,9 @@ void Examen::affiche(){
 }
 
 Examen::~Examen(){}
+
+// surchage ==
+bool Examen::operator==(const Examen &e)
+{
+    return(this->no_exam==e.no_exam);
+}

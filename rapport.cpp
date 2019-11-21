@@ -26,3 +26,11 @@ void Rapport::set_Mdp(string mdp){
 }
 
 Rapport::~Rapport(){}
+
+/*
+// surchage ==
+bool Rapport::operator==(const Rapport &r)
+{
+    return(this->nom==p.nom && this->prenom==p.prenom && this->age==p.age);
+}
+*/

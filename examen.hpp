@@ -31,4 +31,5 @@ class Examen
     void affiche();
     void supprimer();
     void ajouter();
+    bool operator==(const Examen &e);
 };

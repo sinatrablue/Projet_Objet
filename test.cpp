@@ -12,5 +12,15 @@ int main(void){
         cout << "Oui" << endl;
     }
 
+    list<Examen> E;
+
+    Patient p1 = Patient("Lilia", "Younsi", 18, 'H', E);
+    Patient p2 = Patient("Oussalah", "Chabane", 75, 'H', E);
+    if(p1==p2){
+        cout << "Oui2" << endl;
+    } else {
+        cout << "NON" << endl;
+    }
+
     return EXIT_SUCCESS;
 }

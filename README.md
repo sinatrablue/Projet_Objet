@@ -2,10 +2,7 @@
 
 Choses restantes :
 
-Pour chaque type, surcharger les opérateurs dont on peut avoir besoin :
-"==", "+", "-".......
-
-Faire une classe date, qu'on peut appeler directement pour définir une date.
+(Pas sûr) Faire une classe date, qu'on peut appeler directement pour définir une date.
 
 Ajouter une fonction ajouter() et supprimer() pour tout sauf centre.
 

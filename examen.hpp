@@ -1,29 +1,34 @@
+#include"cliche.hpp"
+#include"rapport.hpp"
+
 // Définition de la classe Examen
-class Exam
+class Examen
 {
     private:
     int no_exam;    // Identifiant
-    string type;    // Radio, Échographie, IRM...
-    string date;    // Date à laquelle l'examen a été fait par le patient, ou sa réservation
+
+    // Changer le type avec 1/2/3 pour ensuite faire une condition dessus
+    std::string type;    // Radio, Échographie, IRM...
+    std::string date;    // Date à laquelle l'examen a été fait par le patient, ou sa réservation
     bool etat;    // Examen passé ou pas encore (juste plannifié)
-    list<int> cliches;
-    list<int> rapports;
+    std::list<Cliche> cliches;
+    std::list<Rapport> rapports;
     public:
     int get_NoExam();
-    string get_Type();
-    string get_Date();
-    list<int> get_Cliches();
-    list<int> get_Rapports();
+    std::string get_Type();
+    std::string get_Date();
+    std::list<Cliche> get_Cliches();
+    std::list<Rapport> get_Rapports();
     bool get_Etat();
     void set_NoExam(int no_exam);
-    void set_Type(string type);
-    void set_Date(string date);
+    void set_Type(std::string type);
+    void set_Date(std::string date);
     void set_Etat(bool etat);
-    void set_Cliches(list<int> cliches);
-    void set_Rapports(list<int> rapports);
-    exam(int, string, string, bool);
-    ~exam();
+    void set_Cliches(std::list<Cliche> cliches);
+    void set_Rapports(std::list<Rapport> rapports);
+    Examen(int, std::string, std::string, bool);
+    ~Examen();
     void affiche();
     void supprimer();
     void ajouter();
-}
+};

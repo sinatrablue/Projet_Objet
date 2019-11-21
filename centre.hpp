@@ -7,26 +7,29 @@ Nom des constantes : tout en majuscules
 */
 
 // Création de la classe Centre
+#include"patient.hpp"
+//#include"examen.hpp"
+
 class Centre
 {
     private:
-    string nom_centre;  // Nom du centre
-    string no_centre;   // Numéro du centre
-    string adresse;     // Adresse postale du centre
-    list<int> patients; // Liste des patients du centre
-    list<int> examens;  // Liste des examens réalisés par le centre
+    std::string nom_centre;  // Nom du centre
+    std::string no_centre;   // Numéro du centre
+    std::string adresse;     // Adresse postale du centre
+    std::list<Patient> patients; // Liste des patients du centre
+    std::list<Examen> examens;  // Liste des examens réalisés par le centre
     public:
-    string get_NumCentre();
-    string get_NomCentre();
-    string get_Adresse();
-    list<int> get_Patients();
-    list<int> get_Examens();
-    void set_NumCentre(string no_centre);
-    void set_NomCentre(string nom_centre);
-    void set_Adresse(string adresse);
-    void set_Patients(list<int> patients);
-    void set_Examens(list<int> examens);
-    centre(string, string, string);
-    ~centre();
+    std::string get_NumCentre();
+    std::string get_NomCentre();
+    std::string get_Adresse();
+    std::list<Patient> get_Patients();
+    std::list<Examen> get_Examens();
+    void set_NumCentre(std::string no_centre);
+    void set_NomCentre(std::string nom_centre);
+    void set_Adresse(std::string adresse);
+    void set_Patients(std::list<Patient> patients);
+    void set_Examens(std::list<Examen> examens);
+    Centre(std::string, std::string, std::string, std::list<Patient>, std::list<Examen>);
+    ~Centre();
     virtual void affiche();
-}
+};

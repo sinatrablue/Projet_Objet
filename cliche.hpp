@@ -7,6 +7,6 @@ class Cliche
     int get_NoCliche();
     void set_NoCliche(int no_cliche);
     void affiche();
-    cliche(int);
-    ~cliche();
-}
+    Cliche(int);
+    ~Cliche();
+};

@@ -1,26 +1,28 @@
+#include"examen.hpp"
+
 // Définition de la classe Patient
 class Patient
 {
     private:
-    string nom;
-    string prenom;
+    std::string nom;
+    std::string prenom;
     int age;
     char sexe;      // en un seul caractère, par exemple : 'H' ou 'F'
-    list<int> examenss;
+    std::list<Examen> examenss;
     public:
-    string get_Name();
-    string get_FirstName();
-    list<int> get_Examenss();
+    std::string get_Name();
+    std::string get_FirstName();
+    std::list<Examen> get_Examenss();
     int get_Age();
     char get_Sexe();
-    void set_Name(string nom);
-    void set_Prenom(string prenom);
+    void set_Name(std::string nom);
+    void set_Prenom(std::string prenom);
     void set_Age(int age);
     void set_Sexe(char sexe);
-    void set_Examenss(list<int> examenss);
+    void set_Examenss(std::list<Examen> examenss);
     void affiche();
     //virtual void ajouter();
     //virtual void supprimer();
-    patient(string, string, int, char);
-    ~patient();
-}
+    Patient(std::string, std::string, int, char, std::list<Examen>);
+    ~Patient();
+};

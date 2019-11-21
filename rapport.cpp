@@ -4,27 +4,27 @@
 
 using namespace std;
 
-rapport::rapport(string rapport, string mdp){
-    this->rapport=rapport;
+Rapport::Rapport(string content, string mdp){
+    this->content=content;
     this->mdp=mdp;
 }
 
-string rapport::get_Rapport(){
+string Rapport::get_Rapport(){
     return this->rapport;
 }
 
-string rapport::ask_Mdp(){
+string Rapport::ask_Mdp(){
     return this->mdp;
 }
 
-void rapport::set_Rapport(string rapport){
+void Rapport::set_Rapport(string rapport){
     this->rapport=rapport;
 }
 
-void rapport::set_Mdp(string mdp){
+void Rapport::set_Mdp(string mdp){
     this->mdp=mdp;
 }
 
-rapport::~rapport(){
+Rapport::~Rapport(){
     cout << "Le rapport a été supprimé." << endl;
 }

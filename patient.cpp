@@ -2,10 +2,11 @@
 #include<string>
 #include<list>
 #include"patient.hpp"
+//#include"examen.hpp"
 
 using namespace std;
 
-patient::patient(string nom, string prenom, int age, char sexe, list<int> examenss){
+Patient::Patient(string nom, string prenom, int age, char sexe, list<Examen> examenss){
     this->nom=nom;
     this->prenom=prenom;
     this->age=age;
@@ -13,47 +14,47 @@ patient::patient(string nom, string prenom, int age, char sexe, list<int> examen
     this->examenss=examenss;
 }
 
-string patient::get_Name(){
+string Patient::get_Name(){
     return this->nom;
 }
 
-string patient::get_Prenom(){
+string Patient::get_Prenom(){
     return this->prenom;
 }
 
-int patient::get_Age(){
+int Patient::get_Age(){
     return this->age;
 }
 
-char patient::get_Sexe(){
+char Patient::get_Sexe(){
     return this->sexe;
 }
 
-list<int> patient::get_Examenss(){
+list<Examen> Patient::get_Examenss(){
     return this->examenss;
 }
 
-void patient::set_Name(string nom){
+void Patient::set_Name(string nom){
     this->nom=nom;
 }
 
-void patient::set_Prenom(string prenom){
+void Patient::set_Prenom(string prenom){
     this->prenom=prenom;
 }
 
-void patient::set_Age(int age){
+void Patient::set_Age(int age){
     this->age=age;
 }
 
-void patient::set_Sexe(char sexe){
+void Patient::set_Sexe(char sexe){
     this->sexe=sexe;
 }
 
-void patient::set_Examenss(list<int> examenss){
+void Patient::set_Examenss(list<Examen> examenss){
     this->examenss=examenss;
 }
 
-void patient::affiche(){
+void Patient::affiche(){
     if(this->sexe=='H'){
         cout << "Monsieur " << this->prenom << " " << this->nom << " ; " << this->age << " ans." << endl;
     } else {
@@ -61,7 +62,7 @@ void patient::affiche(){
     }
 }
 
-patient::~patient(){
+Patient::~Patient(){
     cout << "Patient supprimé de la base." << endl;
 }
 

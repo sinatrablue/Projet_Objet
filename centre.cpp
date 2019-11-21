@@ -4,12 +4,12 @@
 #include<string>
 #include<list>
 #include"centre.hpp"
-#include"patient.hpp"
-#include"examen.hpp"
+//#include"patient.hpp"
+//#include"examen.hpp"
 
 using namespace std;
 
-centre::centre(string nom_centre, string no_centre, string adresse, list<int> patients, list<int> examens)
+Centre::Centre(std::string nom_centre, std::string no_centre, std::string adresse, std::list<Patient> patients, std::list<Examen> examens)
 {
     this->nom_centre=nom_centre;
     this->no_centre=no_centre;
@@ -18,50 +18,50 @@ centre::centre(string nom_centre, string no_centre, string adresse, list<int> pa
     this->examens=examens;
 }
 
-string centre::get_NumCentre(){
+std::string Centre::get_NumCentre(){
     return this->no_centre;
 }
 
-string centre::get_NomCentre(){
+std::string Centre::get_NomCentre(){
     return this->nom_centre;
 }
 
-string centre::get_Adresse(){
+std::string Centre::get_Adresse(){
     return this->adresse;
 }
 
-list<int> centre::get_Patients(){
+std::list<Patient> Centre::get_Patients(){
     return this->patients;
 }
 
-list<int> centre::get_Examens(){
+std::list<Examen> Centre::get_Examens(){
     return this->examens;
 }
 
-void centre::set_NumCentre(string no_centre){
+void Centre::set_NumCentre(std::string no_centre){
     this->no_centre=no_centre;
 }
 
-void centre::set_NomCentre(string nom_centre){
+void Centre::set_NomCentre(std::string nom_centre){
     this->nom_centre=nom_centre;
 }
 
-void centre::set_Adresse(string adresse){
+void Centre::set_Adresse(std::string adresse){
     this->adresse=adresse;
 }
 
-void centre::set_Patients(list<int> patients){
+void Centre::set_Patients(std::list<Patient> patients){
     this->patients=patients;
 }
 
-void centre::set_Examens(list<int> examens){
+void Centre::set_Examens(std::list<Examen> examens){
     this->examens=examens;
 }
 
-void centre::affiche(){
+void Centre::affiche(){
     cout<< "Nous somme le centre " << this->nom_centre << '\n' << "Identifié " << this->no_centre << '\n' << "Domicilié au : " << this->adresse << endl;
 }
 
-centre::~centre(){
+Centre::~Centre(){
     cout << "Destruction de centre effectuée." << endl;
 }

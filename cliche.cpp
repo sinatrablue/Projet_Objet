@@ -16,3 +16,9 @@ void Cliche::set_NoCliche(int cliche){
 }
 
 Cliche::~Cliche(){}
+
+// surchage ==
+bool Cliche::operator==(const Cliche &c)
+{
+    return(this->no_cliche==c.no_cliche);
+}

@@ -9,4 +9,7 @@ class Cliche
     void affiche();
     Cliche(int);
     ~Cliche();
+
+    // surcharge ==
+    bool operator==(const Cliche &c);
 };

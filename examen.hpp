@@ -32,8 +32,6 @@ class Examen
     void supprimer();
     void ajouter();
     bool operator==(const Examen &e);
-    void ajouter_Cliche(std::list<Cliche>, Cliche);
-    void ajouter_Rapport(std::list<Rapport>, Rapport);
-    void supprimer_Cliche(std::list<Cliche>, Cliche);
-    void supprimer_Rapport(std::list<Rapport>, Rapport);
+    void ajouter_Examen(std::list<Examen>&);
+    void supprimer_Examen(std::list<Examen>&);
 };

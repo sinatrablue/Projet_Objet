@@ -8,7 +8,6 @@ Nom des constantes : tout en majuscules
 
 // Création de la classe Centre
 #include"patient.hpp"
-//#include"examen.hpp"
 
 class Centre
 {

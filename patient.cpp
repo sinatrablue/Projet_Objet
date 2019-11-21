@@ -70,13 +70,32 @@ bool Patient::operator==(const Patient &p)
     return(this->nom==p.nom && this->prenom==p.prenom && this->age==p.age);
 }
 
-
-
-/*
-void patient::ajouter(string nom, string prenom, int age, char sexe){
-    new_patient=patient::patient(string nom, string prenom, int age, char sexe);
-    return new_patient;
+void Patient::ajouter_Patient(list<Patient> &P){
+    bool test=false;
+    for(list<Patient>::iterator it=P.begin(); it!=P.end(); it++){
+        if(it->prenom==this->prenom && it->nom==this->nom && it->age==this->age){
+            test=true;
+            cout << "Le patient existe déjà" << endl;
+        }
+    }
+    if(test==false){
+        Patient Pa = Patient(this->nom, this->prenom, this->age, this->sexe, this->examenss);
+        P.push_back(Pa);
+    }
 }
-*/
+
+void Patient::supprimer_Patient(list<Patient> &P){
+    list<Patient>::iterator itr = P.begin();
+    while(itr!=P.end()){
+        if(itr->prenom==this->prenom && itr->nom==this->nom && itr->age==this->age){
+            itr = P.erase(itr);
+            cout << "Cliché supprimé !" << endl;
+        } else {
+            ++itr;
+        }
+        cout << "t1" << endl;
+    }
+    cout << "t2" << endl;
+}
 
 // Idem pour supprimer si besoin

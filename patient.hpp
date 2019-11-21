@@ -27,4 +27,6 @@ class Patient
     ~Patient();
     // surcharge ==
     bool operator==(const Patient &p);
+    void ajouter_Patient(std::list<Patient>&);
+    void supprimer_Patient(std::list<Patient>&);
 };

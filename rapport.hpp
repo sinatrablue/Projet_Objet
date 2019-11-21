@@ -12,4 +12,6 @@ class Rapport
     Rapport(std::string, std::string);
     ~Rapport();
     //bool operator==(const Rapport &r);
+    void ajouter_Rapport(std::list<Rapport>&);
+    void supprimer_Rapport(std::list<Rapport>&);
 };

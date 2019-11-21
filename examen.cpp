@@ -77,48 +77,31 @@ bool Examen::operator==(const Examen &e)
 {
     return(this->no_exam==e.no_exam);
 }
-/*
-void Examen::ajouter_Cliche(list<Cliche> listCliche, Cliche clicheAjout){
+
+void Examen::ajouter_Examen(list<Examen> &E){
     bool test=false;
-    for(int i=0;i<listCliche.size();i++){
-        if(listCliche[i].no_cliche==clicheAjout.no_cliche){
+    for(list<Examen>::iterator it=E.begin(); it!=E.end(); it++){
+        if(it->no_exam==this->no_exam){
             test=true;
-            cout << "Le cliché existe déjà" << endl;
+            cout << "L'examen existe déjà" << endl;
         }
     }
     if(test==false){
-        listCliche.push_back(clicheAjout);
+        Examen ex = Examen(this->no_exam, this->type, this->date, this->etat, this->cliches, this->rapports);
+        E.push_back(ex);
     }
 }
 
-void Examen::ajouter_Rapport(list<Rapport> listRapport, Rapport rapportAjout){
-    bool test=false;
-    for(int i=0;i<listRapport.size();i++){
-        if(listRapport[i].content==rapportAjout.content){
-            test=true;
-            cout << "Le rapport existe déjà" << endl;
-        }
-    }
-    if(test==false){
-        listRapport.push_back(rapportAjout);
-    }
-}
-
-void supprimer_Cliche(list<Cliche> listCliche, Cliche clicheSuppr){
-    for(int i=0;i<listCliche.size();i++){
-        if(listCliche[i]==clicheSuppr){
-            listCliche.remove(listCliche[i]);
+void Examen::supprimer_Examen(list<Examen> &E){
+    list<Examen>::iterator itr = E.begin();
+    while(itr!=E.end()){
+        if(itr->no_exam==this->no_exam){
+            itr = E.erase(itr);
             cout << "Cliché supprimé !" << endl;
+        } else {
+            ++itr;
         }
+        cout << "t1" << endl;
     }
+    cout << "t2" << endl;
 }
-
-void supprimer_Rapport(list<Rapport> listRapport, Cliche rapportSuppr){
-    for(int i=0;i<listRapport.size();i++){
-        if(listRapport[i]==rapportSuppr){
-            listRapport.remove(listRapport[i]);
-            cout << "Rapport supprimé !" << endl;
-        }
-    }
-}
-*/

@@ -4,8 +4,6 @@ Choses restantes :
 
 (Pas sûr) Faire une classe date, qu'on peut appeler directement pour définir une date.
 
-Ajouter une fonction ajouter() et supprimer() pour tout sauf centre.
-
 Ajouter les fonctions de recherche et d'affichage par patient, par date d'exam et par numéro d'exam.
 >> Notre essai un peu algo :
 patient = oussalah

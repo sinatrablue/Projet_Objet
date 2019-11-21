@@ -15,5 +15,5 @@ class Cliche
     // surcharge ==
     bool operator==(const Cliche &c);
 
-    void ajouter_Cliche(std::list<Cliche>);
+    void ajouter_Cliche(std::list<Cliche>&);
 };

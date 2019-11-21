@@ -26,8 +26,8 @@ bool Cliche::operator==(const Cliche &c)
 
 void Cliche::ajouter_Cliche(list<Cliche> &C){
     bool test=false;
-    for(list<Cliche>::iterator i=C.begin();i!=C.end();i++){
-        if(i->no_cliche==this->no_cliche){
+    for(list<Cliche>::iterator it=C.begin(); it!=C.end(); it++){
+        if(it->no_cliche==this->no_cliche){
             test=true;
             cout << "Le cliché existe déjà" << endl;
         }
@@ -35,5 +35,5 @@ void Cliche::ajouter_Cliche(list<Cliche> &C){
     if(test==false){
         Cliche cl = Cliche(this->no_cliche);
         C.push_back(cl);
-    } 
+    }
 }

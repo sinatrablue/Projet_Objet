@@ -18,7 +18,7 @@ string Patient::get_Name(){
     return this->nom;
 }
 
-string Patient::get_Prenom(){
+string Patient::get_FirstName(){
     return this->prenom;
 }
 
@@ -62,9 +62,7 @@ void Patient::affiche(){
     }
 }
 
-Patient::~Patient(){
-    cout << "Patient supprimé de la base." << endl;
-}
+Patient::~Patient(){}
 
 
 /*

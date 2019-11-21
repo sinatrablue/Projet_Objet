@@ -62,6 +62,4 @@ void Centre::affiche(){
     cout<< "Nous somme le centre " << this->nom_centre << '\n' << "Identifié " << this->no_centre << '\n' << "Domicilié au : " << this->adresse << endl;
 }
 
-Centre::~Centre(){
-    cout << "Destruction de centre effectuée." << endl;
-}
+Centre::~Centre(){}

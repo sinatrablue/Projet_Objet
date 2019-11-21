@@ -10,21 +10,19 @@ Rapport::Rapport(string content, string mdp){
 }
 
 string Rapport::get_Rapport(){
-    return this->rapport;
+    return this->content;
 }
 
 string Rapport::ask_Mdp(){
     return this->mdp;
 }
 
-void Rapport::set_Rapport(string rapport){
-    this->rapport=rapport;
+void Rapport::set_Rapport(string content){
+    this->content=content;
 }
 
 void Rapport::set_Mdp(string mdp){
     this->mdp=mdp;
 }
 
-Rapport::~Rapport(){
-    cout << "Le rapport a été supprimé." << endl;
-}
+Rapport::~Rapport(){}

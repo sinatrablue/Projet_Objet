@@ -12,9 +12,7 @@ int Cliche::get_NoCliche(){
 }
 
 void Cliche::set_NoCliche(int cliche){
-    this->cliche=cliche;
+    this->no_cliche=no_cliche;
 }
 
-Cliche::~Cliche(){
-    cout << "Cliché bien supprimé." << endl;
-}
+Cliche::~Cliche(){}

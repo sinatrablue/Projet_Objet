@@ -26,7 +26,7 @@ class Examen
     void set_Etat(bool etat);
     void set_Cliches(std::list<Cliche> cliches);
     void set_Rapports(std::list<Rapport> rapports);
-    Examen(int, std::string, std::string, bool);
+    Examen(int, std::string, std::string, bool, std::list<Cliche>, std::list<Rapport>);
     ~Examen();
     void affiche();
     void supprimer();

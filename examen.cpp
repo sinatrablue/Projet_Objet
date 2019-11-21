@@ -30,11 +30,11 @@ bool Examen::get_Etat(){
     return this->etat;
 }
 
-list<int> Examen::get_Cliches(){
+list<Cliche> Examen::get_Cliches(){
     return this->cliches;
 }
 
-list<int> Examen::get_Rapports(){
+list<Rapport> Examen::get_Rapports(){
     return this->rapports;
 }
 
@@ -70,6 +70,4 @@ void Examen::affiche(){
     }
 }
 
-Examen::~Examen(){
-    cout << "Examen supprimé de la base." << endl;
-}
+Examen::~Examen(){}

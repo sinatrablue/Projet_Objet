@@ -37,3 +37,18 @@ void Cliche::ajouter_Cliche(list<Cliche> &C){
         C.push_back(cl);
     }
 }
+
+void Cliche::supprimer_Cliche(list<Cliche> &C){
+    list<Cliche>::iterator itr = C.begin();
+    while(itr!=C.end()){
+        if(itr->no_cliche==this->no_cliche){
+            //C.remove((*itr));
+            itr = C.erase(itr);
+            cout << "Cliché supprimé !" << endl;
+        } else {
+            ++itr;
+        }
+        cout << "t1" << endl;
+    }
+    cout << "t2" << endl;
+} 

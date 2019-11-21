@@ -16,4 +16,5 @@ class Cliche
     bool operator==(const Cliche &c);
 
     void ajouter_Cliche(std::list<Cliche>&);
+    void supprimer_Cliche(std::list<Cliche>&);
 };

@@ -77,3 +77,48 @@ bool Examen::operator==(const Examen &e)
 {
     return(this->no_exam==e.no_exam);
 }
+/*
+void Examen::ajouter_Cliche(list<Cliche> listCliche, Cliche clicheAjout){
+    bool test=false;
+    for(int i=0;i<listCliche.size();i++){
+        if(listCliche[i].no_cliche==clicheAjout.no_cliche){
+            test=true;
+            cout << "Le cliché existe déjà" << endl;
+        }
+    }
+    if(test==false){
+        listCliche.push_back(clicheAjout);
+    }
+}
+
+void Examen::ajouter_Rapport(list<Rapport> listRapport, Rapport rapportAjout){
+    bool test=false;
+    for(int i=0;i<listRapport.size();i++){
+        if(listRapport[i].content==rapportAjout.content){
+            test=true;
+            cout << "Le rapport existe déjà" << endl;
+        }
+    }
+    if(test==false){
+        listRapport.push_back(rapportAjout);
+    }
+}
+
+void supprimer_Cliche(list<Cliche> listCliche, Cliche clicheSuppr){
+    for(int i=0;i<listCliche.size();i++){
+        if(listCliche[i]==clicheSuppr){
+            listCliche.remove(listCliche[i]);
+            cout << "Cliché supprimé !" << endl;
+        }
+    }
+}
+
+void supprimer_Rapport(list<Rapport> listRapport, Cliche rapportSuppr){
+    for(int i=0;i<listRapport.size();i++){
+        if(listRapport[i]==rapportSuppr){
+            listRapport.remove(listRapport[i]);
+            cout << "Rapport supprimé !" << endl;
+        }
+    }
+}
+*/

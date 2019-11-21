@@ -1,4 +1,5 @@
 #include<iostream>
+#include<list>
 #include"cliche.hpp"
 
 using namespace std;
@@ -21,4 +22,18 @@ Cliche::~Cliche(){}
 bool Cliche::operator==(const Cliche &c)
 {
     return(this->no_cliche==c.no_cliche);
+}
+
+void Cliche::ajouter_Cliche(list<Cliche> &C){
+    bool test=false;
+    for(list<Cliche>::iterator i=C.begin();i!=C.end();i++){
+        if(i->no_cliche==this->no_cliche){
+            test=true;
+            cout << "Le cliché existe déjà" << endl;
+        }
+    }
+    if(test==false){
+        Cliche cl = Cliche(this->no_cliche);
+        C.push_back(cl);
+    } 
 }

@@ -1,3 +1,5 @@
+#include<list>
+
 // Définition de la classe cliché
 class Cliche
 {
@@ -12,4 +14,6 @@ class Cliche
 
     // surcharge ==
     bool operator==(const Cliche &c);
+
+    void ajouter_Cliche(std::list<Cliche>);
 };

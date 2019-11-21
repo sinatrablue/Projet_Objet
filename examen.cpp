@@ -5,16 +5,16 @@
 
 using namespace std;
 
-Examen::Examen(int no_exam, string type, string date, bool etat, list<Cliche> cliches, list<Rapport> rapports){
+Examen::Examen(string no_exam, string type, string date, bool etat, list<Cliche> cliches, Rapport rapp){
     this->no_exam=no_exam;
     this->type=type;
     this->date=date;
     this->etat=etat;
     this->cliches=cliches;
-    this->rapports=rapports;
+    this->rapp=rapp;
 }
 
-int Examen::get_NoExam(){
+string Examen::get_NoExam(){
     return this->no_exam;
 }
 
@@ -34,11 +34,11 @@ list<Cliche> Examen::get_Cliches(){
     return this->cliches;
 }
 
-list<Rapport> Examen::get_Rapports(){
-    return this->rapports;
+Rapport Examen::get_Rapport(){
+    return this->rapp;
 }
 
-void Examen::set_NoExam(int no_exam){
+void Examen::set_NoExam(string no_exam){
     this->no_exam=no_exam;
 }
 
@@ -58,8 +58,8 @@ void Examen::set_Cliches(list<Cliche> cliches){
     this->cliches=cliches;
 }
 
-void Examen::set_Rapports(list<Rapport> rapports){
-    this->rapports=rapports;
+void Examen::set_Rapport(Rapport rapp){
+    this->rapp=rapp;
 }
 
 void Examen::affiche(){
@@ -87,7 +87,7 @@ void Examen::ajouter_Examen(list<Examen> &E){
         }
     }
     if(test==false){
-        Examen ex = Examen(this->no_exam, this->type, this->date, this->etat, this->cliches, this->rapports);
+        Examen ex = Examen(this->no_exam, this->type, this->date, this->etat, this->cliches, this->rapp);
         E.push_back(ex);
     }
 }
@@ -101,7 +101,5 @@ void Examen::supprimer_Examen(list<Examen> &E){
         } else {
             ++itr;
         }
-        cout << "t1" << endl;
     }
-    cout << "t2" << endl;
 }

@@ -5,6 +5,8 @@
 
 using namespace std;
 
+Examen::Examen() {}
+
 Examen::Examen(string no_exam, string type, string date, bool etat, list<Cliche> cliches, Rapport rapp){
     this->no_exam=no_exam;
     this->type=type;

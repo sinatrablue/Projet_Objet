@@ -5,6 +5,8 @@
 
 using namespace std;
 
+Rapport::Rapport() {}
+
 Rapport::Rapport(string content, string mdp){
     this->content=content;
     this->mdp=mdp;
@@ -36,6 +38,8 @@ bool Rapport::operator==(const Rapport &r)
 }
 */
 
+
+// Ces deux méthodes probablement à changer parce qu'on n'utilise plus une liste
 void Rapport::ajouter_Rapport(list<Rapport> &R){
     bool test=false;
     for(list<Rapport>::iterator it=R.begin(); it!=R.end(); it++){

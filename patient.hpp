@@ -24,6 +24,7 @@ class Patient
     //virtual void ajouter();
     //virtual void supprimer();
     Patient(std::string, std::string, int, char, std::list<Examen>);
+    Patient();
     ~Patient();
     // surcharge ==
     bool operator==(const Patient &p);

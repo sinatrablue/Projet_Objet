@@ -10,6 +10,7 @@ class Cliche
     void set_NoCliche(int no_cliche);
     void affiche();
     Cliche(int);
+    Cliche();
     ~Cliche();
 
     // surcharge ==

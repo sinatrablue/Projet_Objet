@@ -7,9 +7,10 @@ class Rapport
     public:
     std::string get_Rapport();
     std::string ask_Mdp();
-    void set_Rapport(std::string rapport);
+    void set_Rapport(std::string content);
     void set_Mdp(std::string mdp);
     Rapport(std::string, std::string);
+    Rapport();
     ~Rapport();
     //bool operator==(const Rapport &r);
     void ajouter_Rapport(std::list<Rapport>&);

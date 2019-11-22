@@ -27,6 +27,7 @@ class Examen
     void set_Cliches(std::list<Cliche> cliches);
     void set_Rapport(Rapport rapp);
     Examen(std::string, std::string, std::string, bool, std::list<Cliche>, Rapport);
+    Examen();
     ~Examen();
     void affiche();
     void supprimer();

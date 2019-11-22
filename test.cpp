@@ -7,7 +7,13 @@
 using namespace std;
 
 int main(void){
-    ifstream file("file.txt");
+    Centre centreTest;
+    list<Examen> listExam;
+
+    string filename;
+    cout << "Donner le nom du fichier texte" << endl;
+    cin >> filename;
+    ifstream file(filename);
     string line;
     getline(file,line); // la première ligne est une description du fichier
     getline(file,line); // la deuxième est le numéro d'exam
@@ -18,7 +24,7 @@ int main(void){
     string dateExam = line;
     getline(file, line); // etat (fait ou non)
     bool etatExam;
-    if(line=="Fait"){
+    if(line=="FAIT"){
         etatExam = true;
     } else {
         etatExam = false;
@@ -32,7 +38,16 @@ int main(void){
 
     Rapport r = Rapport(contentRapport, mdpRapport);
     list<Cliche> l;
-    Examen ex = Examen(numeroExam, typeExam, dateExam, etatExam, l, r);    
+    cout << "Taille : " << listExam.size() << endl;
+    Examen ex = Examen(numeroExam, typeExam, dateExam, etatExam, l, r);
+    cout << "Examen bien créé" << endl;
+
+    ex.ajouter_Examen(listExam);
+    cout << "Examen ajouté à la liste" << endl;
+    cout << "Taille : " << listExam.size() << endl;
+
+    centreTest.set_Examens(listExam);
+    cout << "Attribut liste d'examen du centre OK" << endl;
 
     file.close();
     return EXIT_SUCCESS;

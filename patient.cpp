@@ -6,6 +6,8 @@
 
 using namespace std;
 
+Patient::Patient() {}
+
 Patient::Patient(string nom, string prenom, int age, char sexe, list<Examen> examenss){
     this->nom=nom;
     this->prenom=prenom;

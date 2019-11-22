@@ -9,6 +9,8 @@
 
 using namespace std;
 
+Centre::Centre() {}
+
 Centre::Centre(std::string nom_centre, std::string no_centre, std::string adresse, std::list<Patient> patients, std::list<Examen> examens)
 {
     this->nom_centre=nom_centre;

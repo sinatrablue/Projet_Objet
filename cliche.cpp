@@ -4,6 +4,8 @@
 
 using namespace std;
 
+Cliche::Cliche() {}
+
 Cliche::Cliche(int no_cliche){
     this->no_cliche=no_cliche;
 }

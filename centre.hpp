@@ -29,6 +29,7 @@ class Centre
     void set_Patients(std::list<Patient> patients);
     void set_Examens(std::list<Examen> examens);
     Centre(std::string, std::string, std::string, std::list<Patient>, std::list<Examen>);
+    Centre();
     ~Centre();
     virtual void affiche();
 };

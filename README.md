@@ -18,3 +18,4 @@ date=machin
 
 
 Ajouter une fonction pour charger/sauvegarder des listes de radios depuis ou vers un fichier texte.
+--> mettre ces deux fonctions dans un fichier genre fonctions.cpp/hpp à importer dans le main, ce sera plus simple.

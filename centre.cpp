@@ -90,13 +90,21 @@ list<Examen> Centre::importFromFile(){
     string mdpRapport = line;
     getline(file,line); // numéros de clichés, séparés par des virgules
     string numeroCliches = line;
-    cout << "n° cliché : " << numeroCliches << endl;
+    cout << "n° clichés : " << numeroCliches << endl;
+    // Séparation des n° de clichés (code un peu volé sur un forum)
+    list<Cliche> l;
+    string delim = ",";
+    size_t pos = 0;
+    string token;
+    while ((pos = numeroCliches.find(delim)) != std::string::npos) {
+    token = numeroCliches.substr(0, pos);
+    cout << "token : " << token << endl;
+    Cliche c = Cliche(token);
+    l.push_back(c);
+    numeroCliches.erase(0, pos + delim.length());
+    }
 
     Rapport r = Rapport(contentRapport, mdpRapport);
-    list<Cliche> l;
-    Cliche c = Cliche(numeroCliches);
-    l.push_back(c);
-    cout << "Taille : " << listExam.size() << endl;
     Examen ex = Examen(numeroExam, typeExam, dateExam, etatExam, l, r);
     cout << "Examen bien créé" << endl;
 
@@ -142,9 +150,6 @@ void Centre::exportToFile(std::list<Examen> listExamen){
         int j = 0;
         auto cc = it->get_Cliches();
         for(auto itr=cc.begin(); itr!=cc.end(); itr++){
-            j+=1;
-            cout << "j : " << j << endl;
-            cout << "2ème test : " << itr->get_NoCliche() << endl;
             string c = itr->get_NoCliche();
             listCliche+=c;
             listCliche+=",";
@@ -160,6 +165,7 @@ void Centre::exportToFile(std::list<Examen> listExamen){
     }
     file.close();
 }
+
 
 // import just a single Patient from a file
 Patient add_Patient(){
@@ -178,16 +184,26 @@ Patient add_Patient(){
     int age = stoi(a);  // age (converted from string)
     getline(file, line);
     string s = line;
-    char sexe = (char)s.c_str(); // sexe (converted from string)
     getline(file, line);
     list<Examen> E;
     string lineE = line;
     // convertir la ligne en la splittant pour remplir la liste d'Examens
     // ATTENTION utiliser le constructeur d'Examen pour chaque élément
-
+    /*
+    string delim = ",";
+    size_t pos = 0;
+    string token;
+    while ((pos = lineE.find(delim)) != std::string::npos) {
+    token = lineE.substr(0, pos);
+    cout << "token : " << token << endl;
+    Examen e = Examen();
+    E.push_back(e);
+    lineE.erase(0, pos + delim.length());
+    }
+    */
 
     // Appel du constructeur du Patient pour remplir les champs :
-    Patient P = Patient(n, fn, age, sexe, E);
+    Patient P = Patient(n, fn, age, s, E);
     return P;
 }
 

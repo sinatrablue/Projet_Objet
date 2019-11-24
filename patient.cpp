@@ -8,7 +8,7 @@ using namespace std;
 
 Patient::Patient() {}
 
-Patient::Patient(string nom, string prenom, int age, char sexe, list<Examen> examenss){
+Patient::Patient(string nom, string prenom, int age, string sexe, list<Examen> examenss){
     this->nom=nom;
     this->prenom=prenom;
     this->age=age;
@@ -28,7 +28,7 @@ int Patient::get_Age(){
     return this->age;
 }
 
-char Patient::get_Sexe(){
+string Patient::get_Sexe(){
     return this->sexe;
 }
 
@@ -48,7 +48,7 @@ void Patient::set_Age(int age){
     this->age=age;
 }
 
-void Patient::set_Sexe(char sexe){
+void Patient::set_Sexe(string sexe){
     this->sexe=sexe;
 }
 
@@ -57,7 +57,7 @@ void Patient::set_Examenss(list<Examen> examenss){
 }
 
 void Patient::affiche(){
-    if(this->sexe=='H'){
+    if(this->sexe=="H"){
         cout << "Monsieur " << this->prenom << " " << this->nom << " ; " << this->age << " ans." << endl;
     } else {
         cout << "Madame " << this->prenom << " " << this->nom << " ; " << this->age << " ans." << endl;

@@ -3,6 +3,8 @@
 Choses restantes :
 
 1°) Trouver comment enfin split() les strings de la ligne avec tous les no_Cliches pour pouvoir en mettre plein
+> J'ai trouvé comment split les chaines mais il faut encore l'ajouter pour la méthode d'écriture.
+> Aussi, ça va être très chiant de remplir la liste d'Examens d'un patient qu'on importe via un fichier. un type Examen ne prend pas que le numéro, donc il va falloir lire le numéro et aller chercher dans la liste des Examens du centre sûrement pour "relier" un ou des Examens à un Patient.
 
 (Pas sûr) Faire une classe date, qu'on peut appeler directement pour définir une date.
 

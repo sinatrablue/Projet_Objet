@@ -6,8 +6,6 @@ class Examen
 {
     private:
     std::string no_exam;    // Identifiant
-
-    // Changer le type avec 1/2/3 pour ensuite faire une condition dessus
     std::string type;    // Radio, Échographie, IRM...
     std::string date;    // Date à laquelle l'examen a été fait par le patient, ou sa réservation
     bool etat;    // Examen passé ou pas encore (juste plannifié)

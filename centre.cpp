@@ -161,31 +161,33 @@ void Centre::exportToFile(std::list<Examen> listExamen){
     file.close();
 }
 
-// Je la fais comme ça mais on pourrait aussi faire depuis un fichier je sais pas...
+// import just a single Patient from a file
 Patient add_Patient(){
-    cout << "Veuillez remplir les informations personnelles du nouveau patient :" << endl;
-    string n;
-    cout << "Nom > ";
-    cin >> n;
-    string fn;
-    cout << "Prénom > ";
-    cin >> fn;
-    int a;
-    cout << "Âge > ";
-    cin >> a;
-    char s;
-    cout << "Sexe > ";
-    cin >> s;
+    string filename;
+    cout << "Donnez le nom du fichier depuis lequel importer" << endl;
+    cin >> filename;
+    ifstream file(filename);
+
+    string line;
+    getline(file,line);
+    string n = line;    // nom
+    getline(file, line);
+    string fn = line;   // prenom
+    getline(file, line);
+    string a = line;
+    int age = stoi(a);  // age (converted from string)
+    getline(file, line);
+    string s = line;
+    char sexe = (char)s.c_str(); // sexe (converted from string)
+    getline(file, line);
     list<Examen> E;
-    string lineE;
-    cout << "N° d'examens > ";
-    cin >> lineE;
+    string lineE = line;
     // convertir la ligne en la splittant pour remplir la liste d'Examens
     // ATTENTION utiliser le constructeur d'Examen pour chaque élément
 
 
     // Appel du constructeur du Patient pour remplir les champs :
-    Patient P = Patient(n, fn, a, s, E);
+    Patient P = Patient(n, fn, age, sexe, E);
     return P;
 }
 

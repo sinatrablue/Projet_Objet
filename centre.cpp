@@ -1,6 +1,5 @@
-// ça sert à rien
-
 #include<iostream>
+#include<fstream>
 #include<string>
 #include<list>
 #include"centre.hpp"
@@ -62,6 +61,132 @@ void Centre::set_Examens(std::list<Examen> examens){
 
 void Centre::affiche(){
     cout<< "Nous somme le centre " << this->nom_centre << '\n' << "Identifié " << this->no_centre << '\n' << "Domicilié au : " << this->adresse << endl;
+}
+
+list<Examen> Centre::importFromFile(){
+    list<Examen> listExam;
+    string filename;
+    cout << "Donner le nom du fichier texte" << endl;
+    cin >> filename;
+    ifstream file(filename);
+    string line;
+    getline(file,line); // la première ligne est une description du fichier
+    getline(file,line); // la deuxième est le numéro d'exam
+    string numeroExam = line;
+    getline(file,line); // la toisième est le type
+    string typeExam = line;
+    getline(file,line); // date de l'exam
+    string dateExam = line;
+    getline(file, line); // etat (fait ou non)
+    bool etatExam;
+    if(line=="FAIT"){
+        etatExam = true;
+    } else {
+        etatExam = false;
+    }
+    getline(file, line); // contenu du rapport
+    string contentRapport = line;
+    getline(file, line); // mot de passe
+    string mdpRapport = line;
+    getline(file,line); // numéros de clichés, séparés par des virgules
+    string numeroCliches = line;
+    cout << "n° cliché : " << numeroCliches << endl;
+
+    Rapport r = Rapport(contentRapport, mdpRapport);
+    list<Cliche> l;
+    Cliche c = Cliche(numeroCliches);
+    l.push_back(c);
+    cout << "Taille : " << listExam.size() << endl;
+    Examen ex = Examen(numeroExam, typeExam, dateExam, etatExam, l, r);
+    cout << "Examen bien créé" << endl;
+
+    ex.ajouter_Examen(listExam);
+    cout << "Examen ajouté à la liste" << endl;
+    cout << "Taille : " << listExam.size() << endl;
+
+
+    file.close();
+    return listExam;
+}
+
+void Centre::exportToFile(std::list<Examen> listExamen){
+    string filename;
+    cout << "Donnez le nom du fichier dans lequel exporter" << endl;
+    cin >> filename;
+    ofstream file;
+    file.open(filename);
+
+    string descriptionFichier;
+    cout << "Brève description de l'examen :" << endl;
+    cin >> descriptionFichier;
+    // écriture dans le fichier
+    if(file){
+        file << descriptionFichier << endl;
+    } else {
+        cout << "Problème de fichier" << endl;
+    }
+    for(auto it=listExamen.begin(); it!=listExamen.end(); it++){
+        string numeroExam = it->get_NoExam();
+        string typeExam = it->get_Type();
+        string dateExam = it->get_Date();
+        string etatExam;
+        if(it->get_Etat()){
+            etatExam="FAIT";
+        } else {
+            etatExam="NON FAIT";
+        }
+        string reportContent = it->get_Rapport().get_Rapport();
+        string listCliche;
+        auto taille_it = it->get_Cliches().size();
+        cout << "Taille de la liste de Clichés : " << taille_it << endl;
+        int j = 0;
+        auto cc = it->get_Cliches();
+        for(auto itr=cc.begin(); itr!=cc.end(); itr++){
+            j+=1;
+            cout << "j : " << j << endl;
+            cout << "2ème test : " << itr->get_NoCliche() << endl;
+            string c = itr->get_NoCliche();
+            listCliche+=c;
+            listCliche+=",";
+        }
+        // écriture dans le fichier
+        file << numeroExam << endl;
+        file << typeExam << endl;
+        file << dateExam << endl;
+        file << etatExam << endl;
+        file << reportContent << endl;
+        file << listCliche << endl;
+        
+    }
+    file.close();
+}
+
+// Je la fais comme ça mais on pourrait aussi faire depuis un fichier je sais pas...
+Patient add_Patient(){
+    cout << "Veuillez remplir les informations personnelles du nouveau patient :" << endl;
+    string n;
+    cout << "Nom > ";
+    cin >> n;
+    string fn;
+    cout << "Prénom > ";
+    cin >> fn;
+    int a;
+    cout << "Âge > ";
+    cin >> a;
+    char s;
+    cout << "Sexe > ";
+    cin >> s;
+    list<Examen> E;
+    string lineE;
+    cout << "N° d'examens > ";
+    cin >> lineE;
+    // convertir la ligne en la splittant pour remplir la liste d'Examens
+    // ATTENTION utiliser le constructeur d'Examen pour chaque élément
+
+
+    // Appel du constructeur du Patient pour remplir les champs :
+    Patient P = Patient(n, fn, a, s, E);
+    return P;
 }
 
 Centre::~Centre(){}

@@ -1,15 +1,16 @@
 #include<list>
+#include<string>
 
 // Définition de la classe cliché
 class Cliche
 {
     private:
-    int no_cliche;      // Seul argument : le numéro du cliché
+    std::string no_cliche;      // Seul argument : le numéro du cliché
     public:
-    int get_NoCliche();
-    void set_NoCliche(int no_cliche);
+    std::string get_NoCliche();
+    void set_NoCliche(std::string no_cliche);
     void affiche();
-    Cliche(int);
+    Cliche(std::string);
     Cliche();
     ~Cliche();
 

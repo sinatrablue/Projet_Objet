@@ -1,20 +1,21 @@
 #include<iostream>
 #include<list>
+#include<string>
 #include"cliche.hpp"
 
 using namespace std;
 
 Cliche::Cliche() {}
 
-Cliche::Cliche(int no_cliche){
+Cliche::Cliche(string no_cliche){
     this->no_cliche=no_cliche;
 }
 
-int Cliche::get_NoCliche(){
+string Cliche::get_NoCliche(){
     return this->no_cliche;
 }
 
-void Cliche::set_NoCliche(int cliche){
+void Cliche::set_NoCliche(string cliche){
     this->no_cliche=no_cliche;
 }
 

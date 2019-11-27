@@ -18,7 +18,6 @@ int main(void){
 
     centreTest.add_Patient();
 
-
     centreTest.car_pat("saliou","thiam",14,"M");
     cout<<"caractéristiques de l'examen de saliou trouvé"<<endl;
     return EXIT_SUCCESS;

@@ -8,25 +8,23 @@ class Patient
     std::string prenom;
     int age;
     std::string sexe;      // en un seul caractère, par exemple : 'H' ou 'F'
-    //std::list<Examen> examenss;
-    Examen examenss; // 
+    std::list<Examen> examenss;
     public:
     std::string get_Name();
     std::string get_FirstName();
-    Examen get_Examenss();
-    //std::list<Examen> get_Examenss();
+    std::list<Examen> get_Examenss();
     int get_Age();
     std::string get_Sexe();
     void set_Name(std::string nom);
     void set_Prenom(std::string prenom);
     void set_Age(int age);
     void set_Sexe(std::string sexe);
-    void set_Examenss(Examen examenss);
+    void set_Examenss(std::list<Examen> examenss);
     void affiche();
     void car_pat(std::string, std::string, int, std::string);
     //virtual void ajouter();
     //virtual void supprimer();
-    Patient(std::string, std::string, int, std::string, Examen);
+    Patient(std::string, std::string, int, std::string, std::list<Examen>);
     Patient();
     ~Patient();
     // surcharge ==

@@ -3,8 +3,6 @@
 #include<string>
 #include<list>
 #include"centre.hpp"
-//#include"patient.hpp"
-//#include"examen.hpp"
 
 using namespace std;
 

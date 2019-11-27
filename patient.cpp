@@ -3,12 +3,12 @@
 #include<list>
 #include"patient.hpp"
 //#include"examen.hpp"
-
+//#include "centre.hpp"
 using namespace std;
 
 Patient::Patient() {}
 
-Patient::Patient(string nom, string prenom, int age, string sexe, list<Examen> examenss){
+Patient::Patient(string nom, string prenom, int age, string sexe, Examen examenss){
     this->nom=nom;
     this->prenom=prenom;
     this->age=age;
@@ -32,9 +32,15 @@ string Patient::get_Sexe(){
     return this->sexe;
 }
 
-list<Examen> Patient::get_Examenss(){
+//Examen Patient :: get_Examenss(){
+
+//}
+Examen Patient :: get_Examenss(){
     return this->examenss;
 }
+//list<Examen> Patient::get_Examenss(){
+//    return this->examenss;
+//}
 
 void Patient::set_Name(string nom){
     this->nom=nom;
@@ -52,9 +58,13 @@ void Patient::set_Sexe(string sexe){
     this->sexe=sexe;
 }
 
-void Patient::set_Examenss(list<Examen> examenss){
-    this->examenss=examenss;
+void Patient::set_Examenss(Examen examenss){
+   this->examenss=examenss;
 }
+
+//void Patient::set_Examenss(list<Examen> examenss){
+//    this->examenss=examenss;
+//}
 
 void Patient::affiche(){
     if(this->sexe=="H"){
@@ -101,3 +111,4 @@ void Patient::supprimer_Patient(list<Patient> &P){
 }
 
 // Idem pour supprimer si besoin
+

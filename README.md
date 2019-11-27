@@ -26,3 +26,9 @@ Ajouter une fonction pour charger/sauvegarder des listes de radios depuis ou ver
 > pas la fonction set_noCliche() alors qu'on a initialisé un cliché vide.
 > J'ai aussi réglé le problème de la boucle, en fait mettre itr=it->machin.truc dedans faisait qu'elle se
 > réinitialisait à chaque fois qu'on entrait dedans donc c'était boucle infinie.
+
+
+
+classe Patient
+
+>vu que chaque patient aura un examen il me semble que que patient peut recuperer un examen de type classe à la place de liste d'examen

@@ -61,6 +61,7 @@ void Centre::set_Examens(std::list<Examen> examens){
 
 void Centre::affiche(){
     cout<< "Nous somme le centre " << this->nom_centre << '\n' << "Identifié " << this->no_centre << '\n' << "Domicilié au : " << this->adresse << endl;
+
 }
 
 list<Examen> Centre::importFromFile(){
@@ -168,43 +169,87 @@ void Centre::exportToFile(std::list<Examen> listExamen){
 
 
 // import just a single Patient from a file
-Patient add_Patient(){
+Patient Centre::add_Patient(){
     string filename;
-    cout << "Donnez le nom du fichier depuis lequel importer" << endl;
+    cout << "Donnez le nom du fichier de patient depuis lequel importer" << endl;
     cin >> filename;
     ifstream file(filename);
 
     string line;
-    getline(file,line);
+    getline(file,line);//titre
     string n = line;    // nom
     getline(file, line);
-    string fn = line;   // prenom
+    string fn = line;    // prenom
     getline(file, line);
     string a = line;
     int age = stoi(a);  // age (converted from string)
     getline(file, line);
     string s = line;
-    getline(file, line);
-    list<Examen> E;
+    getline(file, line); 
     string lineE = line;
+    list<Examen>E;
     // convertir la ligne en la splittant pour remplir la liste d'Examens
     // ATTENTION utiliser le constructeur d'Examen pour chaque élément
-    /*
+    
     string delim = ",";
     size_t pos = 0;
     string token;
     while ((pos = lineE.find(delim)) != std::string::npos) {
     token = lineE.substr(0, pos);
     cout << "token : " << token << endl;
+
     Examen e = Examen();
     E.push_back(e);
     lineE.erase(0, pos + delim.length());
     }
-    */
-
+    
+   
     // Appel du constructeur du Patient pour remplir les champs :
     Patient P = Patient(n, fn, age, s, E);
     return P;
 }
 
 Centre::~Centre(){}
+
+
+// afficher les caractéristiques des examens par patient
+
+
+
+void Centre ::car_pat(std::string P, std::string N, int A, std::string S){
+    
+    list <Patient> ls_p = get_Patients();
+    for(list<Patient>::iterator it=ls_p.begin(); it!=ls_p.end(); it++){
+        if (it->get_FirstName()==P && it->get_Name() ==N && it->get_Age()==A && it->get_Sexe()==S){
+            list<Examen> EX =it->get_Examenss();
+            Patient pat_choisi(P,N,A,S,EX);
+            pat_choisi.affiche();
+            cout<<"Voici les caractéristiques des examens de "<< P << endl;
+            for (list<Examen>::iterator it = EX.begin(); it!=EX.end(); it++)
+            {
+                /*
+              string numEX= it->get_NoExam();
+              string typeEX= it->get_Type();
+              string dateEX= it->get_Date();
+              bool etatEX= it->get_Etat();
+              list<Cliche> clicheEX= it->get_Cliches();
+              //list<Rapport> rapportEX= it->get_Rapport();
+              list<Rapport> r;
+              */
+              Examen E = *it;
+              E.affiche();
+              
+
+            }
+            
+            
+
+
+        }
+        else{
+            cout<<"le patient"<<P<<N<<"n'existe pas dans la base de données"<<endl;
+        }
+
+    }
+        
+}

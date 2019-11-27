@@ -167,14 +167,14 @@ void Centre::exportToFile(std::list<Examen> listExamen){
 
 
 // import just a single Patient from a file
-Patient Centre::add_Patient(){
+void Centre::add_Patient(){
     string filename;
     cout << "Donnez le nom du fichier de patient depuis lequel importer" << endl;
     cin >> filename;
     ifstream file(filename);
 
     string line;
-    getline(file,line);//titre
+    getline(file,line);
     string n = line;    // nom
     getline(file, line);
     string fn = line;    // prenom
@@ -182,7 +182,7 @@ Patient Centre::add_Patient(){
     string a = line;
     int age = stoi(a);  // age (converted from string)
     getline(file, line);
-    string s = line;
+    string s = line;  // sexe
     getline(file, line); 
     string lineE = line;
     list<Examen>E;
@@ -194,9 +194,9 @@ Patient Centre::add_Patient(){
     string token;
     while ((pos = lineE.find(delim)) != std::string::npos) {
     token = lineE.substr(0, pos);
-    cout << "token : " << token << endl;
+    // cout << "token : " << token << endl;
 
-    Examen e = Examen();
+    Examen e;
     E.push_back(e);
     lineE.erase(0, pos + delim.length());
     }
@@ -204,7 +204,7 @@ Patient Centre::add_Patient(){
    
     // Appel du constructeur du Patient pour remplir les champs :
     Patient P = Patient(n, fn, age, s, E);
-    return P;
+    this->patients.push_back(P);
 }
 
 Centre::~Centre(){}

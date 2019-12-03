@@ -9,30 +9,14 @@ using namespace std;
 int main(void){
     Centre centreTest;
     
-    
-    centreTest.set_Examens(centreTest.importFromFile());
+    centreTest.set_Examens(centreTest.importExamFromFile());
     cout << "Attribut liste d'examen du centre OK" << endl;
 
-    centreTest.exportToFile(centreTest.get_Examens());
+    centreTest.exportExamToFile(centreTest.get_Examens());
     cout << "Fichier bien enregistré" << endl;
 
-    centreTest.add_Patient();
-    /*      Boucle de test qui ne fonctionne pas :
-    auto start = centreTest.get_Patients().begin();
-    auto end = centreTest.get_Patients().end();
-    cout << "1 -- Patients :" << endl;
-    for(auto it=start; it!=end; it++){
-        cout << it->get_FirstName() << " " << it->get_Name() << " " << it->get_Age() << " ans." << endl;
-    }
-    */
-
-    /*
-    centreTest.car_pat("saliou","thiam",14,"M");
-    cout << "2 -- Patients :" << endl;
-    for(auto it=start; it!=end; it++){
-        cout << it->get_FirstName() << " " << it->get_Name() << endl;
-    }
-    */
+    centreTest.importPatientFromFile();
+    cout << "Patient bien enregistré" << endl;
 
     return EXIT_SUCCESS;
 }

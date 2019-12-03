@@ -28,10 +28,9 @@ class Centre
     void set_Adresse(std::string adresse);
     void set_Patients(std::list<Patient> patients);
     void set_Examens(std::list<Examen> examens);
-    std::list<Examen> importFromFile();
-    void exportToFile(std::list<Examen>);
-    void car_pat(std::string, std::string, int, std::string);
-    void add_Patient();
+    std::list<Examen> importExamFromFile();
+    void exportExamToFile(std::list<Examen>);
+    void importPatientFromFile();
     Centre(std::string, std::string, std::string, std::list<Patient>, std::list<Examen>);
     Centre();
     ~Centre();

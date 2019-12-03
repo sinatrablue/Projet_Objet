@@ -62,7 +62,7 @@ void Centre::affiche(){
 
 }
 
-list<Examen> Centre::importFromFile(){
+list<Examen> Centre::importExamFromFile(){
     list<Examen> listExam;
     string filename;
     cout << "Donner le nom du fichier texte" << endl;
@@ -108,15 +108,12 @@ list<Examen> Centre::importFromFile(){
     cout << "Examen bien créé" << endl;
 
     ex.ajouter_Examen(listExam);
-    cout << "Examen ajouté à la liste" << endl;
-    cout << "Taille : " << listExam.size() << endl;
-
 
     file.close();
     return listExam;
 }
 
-void Centre::exportToFile(std::list<Examen> listExamen){
+void Centre::exportExamToFile(std::list<Examen> listExamen){
     string filename;
     cout << "Donnez le nom du fichier dans lequel exporter" << endl;
     cin >> filename;
@@ -167,7 +164,7 @@ void Centre::exportToFile(std::list<Examen> listExamen){
 
 
 // import just a single Patient from a file
-void Centre::add_Patient(){
+void Centre::importPatientFromFile(){
     string filename;
     cout << "Donnez le nom du fichier de patient depuis lequel importer" << endl;
     cin >> filename;
@@ -185,69 +182,34 @@ void Centre::add_Patient(){
     string s = line;  // sexe
     getline(file, line); 
     string lineE = line;
+
     list<Examen>E;
-    // convertir la ligne en la splittant pour remplir la liste d'Examens
-    // ATTENTION utiliser le constructeur d'Examen pour chaque élément
-    
+    // Ensuite c'est l'initialisation de la lecture n° par n° sur la liste avec la virgule comme délimiteur
+    // J'ai clairement cherché sur internet et volé sur les forums, considère juste que "token" c'est le n°
+    // de chaque exam sur la liste tour à tour...
     string delim = ",";
     size_t pos = 0;
     string token;
     while ((pos = lineE.find(delim)) != std::string::npos) {
-    token = lineE.substr(0, pos);
-    // cout << "token : " << token << endl;
-
-    Examen e;
-    E.push_back(e);
-    lineE.erase(0, pos + delim.length());
+        token = lineE.substr(0, pos);
+        cout << "token 2 : " << token << endl;
+        Examen e;  // Initialisation maintenant, si on le fait dans la boucle le E.push_back() ne marche pas
+        auto ee = this->get_Examens(); // pour que la boucle 'for' ne fasse pas segmentation fault
+        // Le this de la ligne du dessus c'est le centre du coup comme c'est Centre::
+        for(auto i=ee.begin(); i!=ee.end(); i++){  // on itère dans la liste d'exams du centre
+            if(i->get_NoExam()==token){  // quand on trouve l'exam qui correspond à celui qu'on vient de lire sur la ligne du patient
+                e = Examen(i->get_NoExam(),i->get_Type(),i->get_Date(),i->get_Etat(),i->get_Cliches(),i->get_Rapport());
+                // On remplit l'exam qu'on va mettre dans la liste d'exams du patients avec les éléments de l'exam, qu'on va chercher dans la base du centre
+            }
+        }
+        E.push_back(e); // On met l'examen en question dans la liste du patient
+        cout << "Taille de la liste d'exams à mettre dans le patient : " << E.size() << endl;
+        lineE.erase(0, pos + delim.length()); // Je sais pas trop mais c'est pour faire boucler le while
     }
     
-   
     // Appel du constructeur du Patient pour remplir les champs :
     Patient P = Patient(n, fn, age, s, E);
-    this->patients.push_back(P);
+    this->patients.push_back(P); // On ajoute le patient dans la liste de patients du centre
 }
 
 Centre::~Centre(){}
-
-
-// afficher les caractéristiques des examens par patient
-
-
-
-void Centre ::car_pat(std::string P, std::string N, int A, std::string S){
-    
-    list <Patient> ls_p = get_Patients();
-    for(list<Patient>::iterator it=ls_p.begin(); it!=ls_p.end(); it++){
-        if (it->get_FirstName()==P && it->get_Name() ==N && it->get_Age()==A && it->get_Sexe()==S){
-            list<Examen> EX =it->get_Examenss();
-            Patient pat_choisi(P,N,A,S,EX);
-            pat_choisi.affiche();
-            cout<<"Voici les caractéristiques des examens de "<< P << endl;
-            for (list<Examen>::iterator it = EX.begin(); it!=EX.end(); it++)
-            {
-                /*
-              string numEX= it->get_NoExam();
-              string typeEX= it->get_Type();
-              string dateEX= it->get_Date();
-              bool etatEX= it->get_Etat();
-              list<Cliche> clicheEX= it->get_Cliches();
-              //list<Rapport> rapportEX= it->get_Rapport();
-              list<Rapport> r;
-              */
-              Examen E = *it;
-              E.affiche();
-              
-
-            }
-            
-            
-
-
-        }
-        else{
-            cout<<"le patient"<<P<<N<<"n'existe pas dans la base de données"<<endl;
-        }
-
-    }
-        
-}

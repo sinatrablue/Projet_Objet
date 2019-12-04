@@ -17,6 +17,5 @@ Ajouter les fonctions de recherche et d'affichage par patient, par date d'exam e
 >            cout j.affiche()
 >date=machin
 
-3°) Robin :
-> Ajouter des boucles de contrôle dans les dernières fonctions créées récemment parce que là il n'y a pas de message d'erreur si il ne trouve pas l'Examen n° machin demandé par exemple, il n'y aura juste rien dans la liste.
+3°) Protéger par mot de passe.
 

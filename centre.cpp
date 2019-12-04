@@ -157,7 +157,7 @@ void Centre::exportExamToFile(std::list<Examen> listExamen){
         file << etatExam << endl;
         file << reportContent << endl;
         file << listCliche << endl;
-        
+
     }
     file.close();
 }
@@ -180,7 +180,7 @@ void Centre::importPatientFromFile(){
     int age = stoi(a);  // age (converted from string)
     getline(file, line);
     string s = line;  // sexe
-    getline(file, line); 
+    getline(file, line);
     string lineE = line;
 
     list<Examen>E;
@@ -190,6 +190,7 @@ void Centre::importPatientFromFile(){
     string delim = ",";
     size_t pos = 0;
     string token;
+    int verif = 0;  // pour un contôle en fin de boucle
     while ((pos = lineE.find(delim)) != std::string::npos) {
         token = lineE.substr(0, pos);
         cout << "token 2 : " << token << endl;
@@ -203,13 +204,20 @@ void Centre::importPatientFromFile(){
             }
         }
         E.push_back(e); // On met l'examen en question dans la liste du patient
+        verif+=1;
         cout << "Taille de la liste d'exams à mettre dans le patient : " << E.size() << endl;
         lineE.erase(0, pos + delim.length()); // Je sais pas trop mais c'est pour faire boucler le while
     }
-    
+    if(verif!=E.size()){
+      cout << "Attention, problème potentiel dans la liste d'Examens de ce patient" << endl;
+    } else {
+      cout << "Informations d'examens du patient bien enregistrées" << endl;
+    }
+
     // Appel du constructeur du Patient pour remplir les champs :
     Patient P = Patient(n, fn, age, s, E);
     this->patients.push_back(P); // On ajoute le patient dans la liste de patients du centre
+    cout << "Patient bien enregistré" << endl;
 }
 
 Centre::~Centre(){}

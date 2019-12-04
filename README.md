@@ -19,3 +19,7 @@ Ajouter les fonctions de recherche et d'affichage par patient, par date d'exam e
 
 3°) Protéger par mot de passe.
 
+>OK POUR le rajout des fonctions caractéristiques des examens par patient,numex,date
+>ok pour l'affichage du rapport aprés avoir donné un mdp
+>ok pour l'interface 
+>je vais revoir un peu l'interface (les boucles)

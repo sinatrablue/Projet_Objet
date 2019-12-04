@@ -1,8 +1,8 @@
-test : test.o cliche.o rapport.o examen.o patient.o centre.o
-	g++ -o test test.o cliche.o rapport.o examen.o patient.o centre.o
+interface : interface.o cliche.o rapport.o examen.o patient.o centre.o
+	g++ -o interface interface.o cliche.o rapport.o examen.o patient.o centre.o
 
-test.o : test.cpp
-	g++ -c test.cpp
+interface.o : interface.cpp
+	g++ -c interface.cpp
 
 cliche.o : cliche.cpp
 	g++ -c cliche.cpp

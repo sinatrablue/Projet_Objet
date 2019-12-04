@@ -31,6 +31,9 @@ class Centre
     std::list<Examen> importExamFromFile();
     void exportExamToFile(std::list<Examen>);
     void importPatientFromFile();
+    void car_pat(std::string, std::string, int, std::string);
+    void car_num(std::string);
+    void car_date(std::string);
     Centre(std::string, std::string, std::string, std::list<Patient>, std::list<Examen>);
     Centre();
     ~Centre();

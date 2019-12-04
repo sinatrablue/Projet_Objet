@@ -89,7 +89,7 @@ list<Examen> Centre::importExamFromFile(){
     string mdpRapport = line;
     getline(file,line); // numéros de clichés, séparés par des virgules
     string numeroCliches = line;
-    cout << "n° clichés : " << numeroCliches << endl;
+    //cout << "n° clichés : " << numeroCliches << endl;
     // Séparation des n° de clichés (code un peu volé sur un forum)
     list<Cliche> l;
     string delim = ",";
@@ -97,7 +97,7 @@ list<Examen> Centre::importExamFromFile(){
     string token;
     while ((pos = numeroCliches.find(delim)) != std::string::npos) {
     token = numeroCliches.substr(0, pos);
-    cout << "token : " << token << endl;
+    //cout << "token : " << token << endl;
     Cliche c = Cliche(token);
     l.push_back(c);
     numeroCliches.erase(0, pos + delim.length());
@@ -142,7 +142,7 @@ void Centre::exportExamToFile(std::list<Examen> listExamen){
         string reportContent = it->get_Rapport().get_Rapport();
         string listCliche;
         auto taille_it = it->get_Cliches().size();
-        cout << "Taille de la liste de Clichés : " << taille_it << endl;
+        //cout << "Taille de la liste de Clichés : " << taille_it << endl;
         int j = 0;
         auto cc = it->get_Cliches();
         for(auto itr=cc.begin(); itr!=cc.end(); itr++){
@@ -205,7 +205,7 @@ void Centre::importPatientFromFile(){
         }
         E.push_back(e); // On met l'examen en question dans la liste du patient
         verif+=1;
-        cout << "Taille de la liste d'exams à mettre dans le patient : " << E.size() << endl;
+        //cout << "Taille de la liste d'exams à mettre dans le patient : " << E.size() << endl;
         lineE.erase(0, pos + delim.length()); // Je sais pas trop mais c'est pour faire boucler le while
     }
     if(verif!=E.size()){
@@ -221,3 +221,109 @@ void Centre::importPatientFromFile(){
 }
 
 Centre::~Centre(){}
+
+
+void Centre ::car_pat(std::string N, std::string P, int A, std::string S){
+    
+    list <Patient> ls_p = get_Patients();
+    list<Examen> E_p= get_Examens();
+    if (ls_p.size()==0 ||E_p.size()==0)
+    {
+        cout<<"il n'y a aucun patient et Examen dans la base de donnée"<<endl;
+    }
+    else
+    {
+       
+    for(list<Patient>::iterator it=ls_p.begin(); it!=ls_p.end(); it++){
+        if (it->get_FirstName()==P && it->get_Name() ==N && it->get_Age()==A && it->get_Sexe()==S){
+            list<Examen> E=it->get_Examenss();
+            Patient pat_choisi(N,P,A,S,E);
+            pat_choisi.affiche();
+            cout<<"Voici les caractéristiques des examens de "<< P << endl;
+            for (list<Examen>::iterator it = E.begin(); it!=E.end(); it++){
+                string N_ex=it->get_NoExam();
+                for (list<Examen>::iterator it = E_p.begin(); it!=E_p.end(); it++)
+                {
+                    if (N_ex==it->get_NoExam());
+                    {
+                        string numEX= it->get_NoExam();
+                        string typeEX= it->get_Type();
+                        list<Cliche> clicheEX= it->get_Cliches();
+                        Rapport rapportEX= it->get_Rapport();
+                        string dateEX= it->get_Date();
+                        bool etatEX= it->get_Etat();
+                        Examen E (numEX,typeEX,dateEX,etatEX,clicheEX,rapportEX);
+                        E.affiche();
+                    }
+                } 
+            }
+        }           
+        else{
+            cout<<"le patient"<<N<<" "<<" "<<P<<" "<<"n'existe pas dans la base de données"<<endl;
+        }
+        
+        
+
+    }
+    }
+        
+}
+
+void Centre:: car_num(std::string num){
+    list <Examen> E =get_Examens();
+    if (E.size()==0)
+    {
+        cout<<"il n'y a aucun  Examen dans la base de donnée"<<endl;
+    }
+    else{
+
+    for (list<Examen>::iterator it = E.begin(); it!=E.end(); it++){
+        if (num==it->get_NoExam())
+        {
+            string numEX= it->get_NoExam();
+            string typeEX= it->get_Type();
+            list<Cliche> clicheEX= it->get_Cliches();
+            Rapport rapportEX= it->get_Rapport();
+            string dateEX= it->get_Date();
+            bool etatEX= it->get_Etat();
+            Examen E (numEX,typeEX,dateEX,etatEX,clicheEX,rapportEX);
+            cout<<"Voici les caractéristiques de l'Examen numéro "<< num << endl;
+            E.affiche();
+
+        }
+        else{
+            cout<<"le numero d'examen"<<num<<" "<<"n'existe pas dans la base de données"<<endl;
+        }
+        
+    }
+    }
+
+}
+
+void Centre:: car_date(std::string date){
+     list <Examen> E =get_Examens();
+     if (E.size()==0)
+    {
+        cout<<"il n'y a aucun  Examen dans la base de donnée"<<endl;
+    }
+    else{
+    for (list<Examen>::iterator it = E.begin(); it!=E.end(); it++){
+        if (date==it->get_Date())
+        {
+            string numEX= it->get_NoExam();
+            string typeEX= it->get_Type();
+            list<Cliche> clicheEX= it->get_Cliches();
+            Rapport rapportEX= it->get_Rapport();
+            string dateEX= it->get_Date();
+            bool etatEX= it->get_Etat();
+            Examen E (numEX,typeEX,dateEX,etatEX,clicheEX,rapportEX);
+            cout<<"Voici les caractéristiques de l'Examen du "<< date<< endl;
+            E.affiche();
+
+        }
+        else{
+            cout<<"Une radiographie n'a pas été enregistré le :"<<date<<endl;
+        }
+    }
+    }
+}

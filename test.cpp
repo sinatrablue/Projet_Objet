@@ -17,6 +17,8 @@ int main(void){
 
     centreTest.importPatientFromFile();
     cout << "Patient bien enregistré" << endl;
+   
+    
 
     return EXIT_SUCCESS;
 }

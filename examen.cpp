@@ -67,18 +67,18 @@ void Examen::set_Rapport(Rapport rapp){
 void Examen::affiche(){
     if(this->etat){
         cout << "Examen numéro : " << this->no_exam << '\n' << "De type : " << this->type << '\n' << "Effectué en date du : " << this->date <<  endl;
-        
-        
+
+
     } else {
         cout << "Examen numéro : " << this->no_exam << '\n' << "De type : " << this->type << '\n' << "Sera réalisé en date du : " << this->date <<  endl;
-            
+
         }
-    cout<<"Veuillez saisir le mot de passe du rapprot pour pouvoir accéder au rapport"<<endl;
+    cout<<"Veuillez saisir le mot de passe du rapport pour pouvoir accéder à son contenu ~> "<<endl;
         string mdp;
         cin>>mdp;
-        Rapport R=this->get_Rapport(); //recupérer les rapports de chaque examen  
+        Rapport R=this->get_Rapport(); //recupérer les rapports de chaque examen
         list<Rapport> rr;
-        rr.push_back(R);//ajouter sous forme de liste 
+        rr.push_back(R);//ajouter sous forme de liste
         for (list<Rapport>::iterator it = rr.begin(); it!=rr.end(); it++){
             if (mdp==it->ask_Mdp())
             {
@@ -87,12 +87,12 @@ void Examen::affiche(){
                 cout<<"Voici le rapport de l'examen : "<<rap<<endl;
             }else
             {
-                cout<<"Mot de passe incorect vous ne pouvez pas acceder au rapport"<<endl;
+                cout<<"Mot de passe incorect vous ne pouvez pas accéder au rapport."<<endl;
             }
-            
-            
+
+
         }
-    
+
     }
 
 
@@ -130,4 +130,3 @@ void Examen::supprimer_Examen(list<Examen> &E){
         }
     }
 }
-

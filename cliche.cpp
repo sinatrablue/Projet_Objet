@@ -50,7 +50,5 @@ void Cliche::supprimer_Cliche(list<Cliche> &C){
         } else {
             ++itr;
         }
-        cout << "t1" << endl;
     }
-    cout << "t2" << endl;
 }

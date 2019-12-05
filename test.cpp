@@ -8,7 +8,7 @@ using namespace std;
 
 int main(void){
     Centre centreTest;
-    
+
     centreTest.set_Examens(centreTest.importExamFromFile());
     cout << "Attribut liste d'examen du centre OK" << endl;
 
@@ -18,7 +18,5 @@ int main(void){
     centreTest.importPatientFromFile();
     cout << "Patient bien enregistré" << endl;
    
-    
-
     return EXIT_SUCCESS;
 }

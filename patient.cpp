@@ -87,7 +87,7 @@ void Patient::ajouter_Patient(list<Patient> &P){
     for(list<Patient>::iterator it=P.begin(); it!=P.end(); it++){
         if(it->prenom==this->prenom && it->nom==this->nom && it->age==this->age){
             test=true;
-            cout << "Le patient existe déjà" << endl;
+            cout << "Le patient existe déjà." << endl;
         }
     }
     if(test==false){
@@ -101,14 +101,11 @@ void Patient::supprimer_Patient(list<Patient> &P){
     while(itr!=P.end()){
         if(itr->prenom==this->prenom && itr->nom==this->nom && itr->age==this->age){
             itr = P.erase(itr);
-            cout << "Cliché supprimé !" << endl;
+            cout << "Patient supprimé !" << endl;
         } else {
             ++itr;
         }
-        cout << "t1" << endl;
     }
-    cout << "t2" << endl;
 }
 
 // Idem pour supprimer si besoin
-

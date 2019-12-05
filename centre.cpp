@@ -224,16 +224,15 @@ Centre::~Centre(){}
 
 
 void Centre ::car_pat(std::string N, std::string P, int A, std::string S){
-    
+
     list <Patient> ls_p = get_Patients();
     list<Examen> E_p= get_Examens();
-    if (ls_p.size()==0 ||E_p.size()==0)
+    if (ls_p.size() == 0 || E_p.size() == 0)
     {
-        cout<<"il n'y a aucun patient et Examen dans la base de donnée"<<endl;
+        cout<<"Il n'y a aucun patient et Examen dans la base de donnée"<<endl;
     }
     else
     {
-       
     for(list<Patient>::iterator it=ls_p.begin(); it!=ls_p.end(); it++){
         if (it->get_FirstName()==P && it->get_Name() ==N && it->get_Age()==A && it->get_Sexe()==S){
             list<Examen> E=it->get_Examenss();
@@ -255,25 +254,25 @@ void Centre ::car_pat(std::string N, std::string P, int A, std::string S){
                         Examen E (numEX,typeEX,dateEX,etatEX,clicheEX,rapportEX);
                         E.affiche();
                     }
-                } 
+                }
             }
-        }           
+        }
         else{
             cout<<"le patient"<<N<<" "<<" "<<P<<" "<<"n'existe pas dans la base de données"<<endl;
         }
-        
-        
+
+
 
     }
     }
-        
+
 }
 
 void Centre:: car_num(std::string num){
     list <Examen> E =get_Examens();
     if (E.size()==0)
     {
-        cout<<"il n'y a aucun  Examen dans la base de donnée"<<endl;
+        cout<<"il n'y a aucun Examen dans la base de donnée"<<endl;
     }
     else{
 
@@ -292,9 +291,9 @@ void Centre:: car_num(std::string num){
 
         }
         else{
-            cout<<"le numero d'examen"<<num<<" "<<"n'existe pas dans la base de données"<<endl;
+            cout<<"le numero d'examen " <<num<< " n'existe pas dans la base de données."<<endl;
         }
-        
+
     }
     }
 
@@ -304,26 +303,26 @@ void Centre:: car_date(std::string date){
      list <Examen> E =get_Examens();
      if (E.size()==0)
     {
-        cout<<"il n'y a aucun  Examen dans la base de donnée"<<endl;
+        cout<<"Erreur : il n'y a aucun Examen dans la base de données."<<endl;
     }
     else{
-    for (list<Examen>::iterator it = E.begin(); it!=E.end(); it++){
-        if (date==it->get_Date())
-        {
-            string numEX= it->get_NoExam();
-            string typeEX= it->get_Type();
-            list<Cliche> clicheEX= it->get_Cliches();
-            Rapport rapportEX= it->get_Rapport();
-            string dateEX= it->get_Date();
-            bool etatEX= it->get_Etat();
-            Examen E (numEX,typeEX,dateEX,etatEX,clicheEX,rapportEX);
-            cout<<"Voici les caractéristiques de l'Examen du "<< date<< endl;
-            E.affiche();
+      for (list<Examen>::iterator it = E.begin(); it!=E.end(); it++){
+          if (date==it->get_Date())
+          {
+              string numEX= it->get_NoExam();
+              string typeEX= it->get_Type();
+              list<Cliche> clicheEX= it->get_Cliches();
+              Rapport rapportEX= it->get_Rapport();
+              string dateEX= it->get_Date();
+              bool etatEX= it->get_Etat();
+              Examen E (numEX,typeEX,dateEX,etatEX,clicheEX,rapportEX);
+              cout<<"Voici les caractéristiques de l'Examen du "<< date<< endl;
+              E.affiche();
 
-        }
-        else{
-            cout<<"Une radiographie n'a pas été enregistré le :"<<date<<endl;
-        }
-    }
+          }
+          else{
+              cout<<"Une radiographie n'a pas été enregistré le : "<<date<<endl;
+          }
+      }
     }
 }

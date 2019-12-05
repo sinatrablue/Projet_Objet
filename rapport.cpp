@@ -30,14 +30,6 @@ void Rapport::set_Mdp(string mdp){
 
 Rapport::~Rapport(){}
 
-/*
-// surchage ==
-bool Rapport::operator==(const Rapport &r)
-{
-    return(this->nom==p.nom && this->prenom==p.prenom && this->age==p.age);
-}
-*/
-
 
 // Ces deux méthodes probablement à changer parce qu'on n'utilise plus une liste
 void Rapport::ajouter_Rapport(list<Rapport> &R){
@@ -45,7 +37,7 @@ void Rapport::ajouter_Rapport(list<Rapport> &R){
     for(list<Rapport>::iterator it=R.begin(); it!=R.end(); it++){
         if(it->content==this->content){
             test=true;
-            cout << "Le cliché existe déjà" << endl;
+            cout << "Le rapport existe déjà" << endl;
         }
     }
     if(test==false){
@@ -59,11 +51,9 @@ void Rapport::supprimer_Rapport(list<Rapport> &R){
     while(itr!=R.end()){
         if(itr->content==this->content){
             itr = R.erase(itr);
-            cout << "Cliché supprimé !" << endl;
+            cout << "Rapport supprimé !" << endl;
         } else {
             ++itr;
         }
-        cout << "t1" << endl;
     }
-    cout << "t2" << endl;
 }

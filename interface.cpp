@@ -54,22 +54,28 @@ int main(){
             cin >> supp;
             if (supp=="E")
             {
+                centreTest.supprimer_Examen(centreTest);
+                /*
                 cout << "Veuillez saisir le numéro d'examen a supprimer : ";
                 cin >> numex_sup;
                 Examen e;
                 list<Examen> ee = centreTest.get_Examens();
                 for(auto i=ee.begin(); i!=ee.end(); i++){
                     if(i->get_NoExam()==numex_sup){
-                    e = Examen(i->get_NoExam(),i->get_Type(),i->get_Date(),i->get_Etat(),i->get_Cliches(),i->get_Rapport());
-                    list<Examen> Ex;
-                    Ex.push_back(e);
-                    examenTest.supprimer_Examen(Ex);
+                        e = Examen(i->get_NoExam(),i->get_Type(),i->get_Date(),i->get_Etat(),i->get_Cliches(),i->get_Rapport());
+                        i=ee.erase(i);
+                    centreTest.set_Examens(ee);
+                        
+                    cout<<"examen supprimé"<<endl;
+                    
                     }
-                }
+                }*/
 
             }
             else if (supp=="P")
             {
+               centreTest.supprimer_Patient(centreTest);
+                /*
                 cout << "Veuillez saisir les informations personnelles du patient :" << endl;
                 cout << "Nom : ";
                 string nom_sup;
@@ -88,11 +94,16 @@ int main(){
                 for(auto i=pp.begin(); i!=pp.end(); i++){
                     if(i->get_Name()==nom_sup && i->get_FirstName()==prenom_sup && i->get_Sexe()==sexe_supp && i->get_Age()==age_supp){
                     p = Patient(i->get_Name(),i->get_FirstName(),i->get_Age(),i->get_Sexe(),i->get_Examenss());
-                    list<Patient> P;
-                    P.push_back(p);
-                    patientTest.supprimer_Patient(P);
+                    i=pp.erase(i);
+                    centreTest.set_Patients(pp);
+                    cout<<"Patient supprimé";
+    
+
+                    
                     }
-                }
+                    
+                }*/
+                
             }
             else
             {

@@ -34,6 +34,8 @@ class Centre
     void car_pat(std::string, std::string, int, std::string); // caractéristiques d'exam par nom de patient
     void car_num(std::string); // caractéristiques d'exam par numéro
     void car_date(std::string); // caractéristiques d'exam par date
+    std ::list<Examen> supprimer_Examen(Centre );
+    std ::list<Patient> supprimer_Patient(Centre);
     Centre(std::string, std::string, std::string, std::list<Patient>, std::list<Examen>); // constructeur
     Centre(); // constructeur par défaut
     ~Centre(); // destructeur

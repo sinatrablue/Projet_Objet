@@ -222,9 +222,9 @@ void Centre ::car_pat(std::string N, std::string P, int A, std::string S){
 
     list <Patient> ls_p = get_Patients();
     list<Examen> E_p= get_Examens();
-    if (ls_p.size() == 0 && E_p.size() == 0)
+    if (ls_p.size() == 0 || E_p.size() == 0)
     {
-        cout<<"Il n'y a aucun patient et Examen dans la base de donnée"<<endl;
+        cout<<"Erreur : Il n'y a aucun Examen pour "<<N<<" "<<P<<" "<< "dans la base de donnée"<<endl;
     }
     else
     {
@@ -253,7 +253,7 @@ void Centre ::car_pat(std::string N, std::string P, int A, std::string S){
             }
         }
         else{
-            cout<<"Le patient "<<N<<" "<<P<<" n'existe pas dans la base de données"<<endl;
+            cout<<"Erreur : Le patient "<<N<<" "<<P<<" n'existe pas dans la base de données"<<endl;
         }
 
 
@@ -267,7 +267,7 @@ void Centre:: car_num(std::string num){
     list <Examen> E =get_Examens();
     if (E.size()==0)
     {
-        cout<<"il n'y a aucun Examen dans la base de donnée"<<endl;
+        cout<<"Erreur : il n'y a aucun Examen dans la base de donnée"<<endl;
     }
     else{
 
@@ -320,4 +320,55 @@ void Centre:: car_date(std::string date){
           }
       }
     }
+}
+
+
+list<Examen> Centre::supprimer_Examen(Centre test){
+    cout << "Veuillez saisir le numéro d'examen a supprimer : "<<endl;
+    string numex_sup;
+    cin >> numex_sup;
+    //Centre test;
+    Examen e;
+    list<Examen> ee = test.get_Examens();
+    for(auto i=ee.begin(); i!=ee.end(); i++){
+        if(i->get_NoExam()==numex_sup){
+            e = Examen(i->get_NoExam(),i->get_Type(),i->get_Date(),i->get_Etat(),i->get_Cliches(),i->get_Rapport());
+            i=ee.erase(i);
+            test.set_Examens(ee);
+            
+                        
+            cout<<"examen supprimé"<<endl;
+           return test.get_Examens();
+            
+        }
+    }
+   
+}
+
+list<Patient> Centre :: supprimer_Patient(Centre test2){
+    cout << "Veuillez saisir les informations personnelles du patient :" << endl;
+    cout << "Nom : ";
+    string nom_sup;
+    cin >> nom_sup;
+    cout << "Prénom : ";
+    string prenom_sup;
+    cin >> prenom_sup;
+    cout << "Sexe (H/F) : ";
+    string sexe_supp;
+    cin >> sexe_supp;
+    cout << "Âge : ";
+    int age_supp;
+    cin >> age_supp;
+    Patient p;
+    list<Patient> pp = test2.get_Patients();
+    for(auto i=pp.begin(); i!=pp.end(); i++){
+        if(i->get_Name()==nom_sup && i->get_FirstName()==prenom_sup && i->get_Sexe()==sexe_supp && i->get_Age()==age_supp){
+        p = Patient(i->get_Name(),i->get_FirstName(),i->get_Age(),i->get_Sexe(),i->get_Examenss());
+        i=pp.erase(i);
+        test2.set_Patients(pp);
+        cout<<"Patient bien supprimé"<<endl;
+        return test2.get_Patients();
+        }
+    }
+    
 }

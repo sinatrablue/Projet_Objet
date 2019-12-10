@@ -73,7 +73,7 @@ void Examen::affiche(){
         cout << "Examen numéro : " << this->no_exam << '\n' << "De type : " << this->type << '\n' << "Sera réalisé en date du : " << this->date <<  endl;
 
         }
-    cout<<"Veuillez saisir le mot de passe du rapport pour pouvoir accéder à son contenu ~> "<<endl;
+    cout<<"Veuillez saisir le mot de passe du rapport pour pouvoir accéder à son contenu ~> ";
         string mdp;
         cin>>mdp;
         Rapport R=this->get_Rapport(); //recupérer les rapports de chaque examen

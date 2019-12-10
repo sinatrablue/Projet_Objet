@@ -193,7 +193,6 @@ void Centre::importPatientFromFile(){
     int verif = 0;  // pour un contôle en fin de boucle
     while ((pos = lineE.find(delim)) != std::string::npos) {
         token = lineE.substr(0, pos);
-        cout << "token 2 : " << token << endl;
         Examen e;  // Initialisation maintenant, si on le fait dans la boucle le E.push_back() ne marche pas
         auto ee = this->get_Examens(); // pour que la boucle 'for' ne fasse pas segmentation fault
         // Le this de la ligne du dessus c'est le centre du coup comme c'est Centre::
@@ -258,7 +257,7 @@ void Centre ::car_pat(std::string N, std::string P, int A, std::string S){
             }
         }
         else{
-            cout<<"le patient"<<N<<" "<<" "<<P<<" "<<"n'existe pas dans la base de données"<<endl;
+            cout<<"Le patient "<<N<<" "<<P<<" n'existe pas dans la base de données"<<endl;
         }
 
 

@@ -97,7 +97,7 @@ int main(){
             else
             {
 
-                cout << "  Vous n'avez pas une lettre valable.  " << endl;
+                cout << "  Vous n'avez pas saisi une lettre valable.  " << endl;
                 cout << "#####  Retour au Menu Principal  #####" << endl;
             } break;
             case 3:
@@ -135,7 +135,7 @@ int main(){
                   {
                   cout <<"Vous voules afficher les CM par numéro d'examen"<<endl;
                   cout <<"Donnez le numéro d'examen"<<endl;
-                  cout<<"~>  " << endl;
+                  cout<<"~>  ";
                   string num;
                   cin>>num;
                   centreTest.car_num(num);

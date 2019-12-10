@@ -335,14 +335,11 @@ list<Examen> Centre::supprimer_Examen(Centre test){
             e = Examen(i->get_NoExam(),i->get_Type(),i->get_Date(),i->get_Etat(),i->get_Cliches(),i->get_Rapport());
             i=ee.erase(i);
             test.set_Examens(ee);
-            
                         
-            cout<<"examen supprimé"<<endl;
-           return test.get_Examens();
-            
+            cout<<"Examen bien supprimé."<<endl;            
         }
     }
-   
+    return test.get_Examens();
 }
 
 list<Patient> Centre :: supprimer_Patient(Centre test2){
@@ -366,9 +363,8 @@ list<Patient> Centre :: supprimer_Patient(Centre test2){
         p = Patient(i->get_Name(),i->get_FirstName(),i->get_Age(),i->get_Sexe(),i->get_Examenss());
         i=pp.erase(i);
         test2.set_Patients(pp);
-        cout<<"Patient bien supprimé"<<endl;
-        return test2.get_Patients();
+        cout<<"Patient bien supprimé."<<endl;
         }
     }
-    
+    return test2.get_Patients();
 }

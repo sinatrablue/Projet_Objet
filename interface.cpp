@@ -104,7 +104,7 @@ int main(){
             {
             do
             {
-                cout << "##### Caractéristiques des Examens : CM ####"<<endl;
+                cout << "##### Caractéristiques des Examens : CE ####"<<endl;
                 cout << "[###########################################]\n0 : Quitter \n1 : Afficher CM par Patient \n2 : Afficher CM par numéro d'examen \n3 : Afficher CM par date \n [###########################################]" << endl;
                 cout << "~>  ";
                 cin>>nb;
@@ -115,7 +115,7 @@ int main(){
                   string prenom;
                   int age;
                   string sexe;
-                  cout<<"Vous voulez afficher les CM par patient :"<<endl;
+                  cout<<"Vous voulez afficher les CE par patient :"<<endl;
                   cout<<"Donnez le nom du patient"<<endl;
                   cout<<"~>  ";
                   cin>>nom;
@@ -125,7 +125,7 @@ int main(){
                   cout<<"Donnez l'âge du patient"<<endl;
                   cout<<"~>  ";
                   cin>>age;
-                  cout<<"Donnez le sexe du patient"<<endl;
+                  cout<<"Donnez le sexe (H/F) du patient"<<endl;
                   cout<<"~>  ";
                   cin>>sexe;
                   centreTest.car_pat(nom,prenom,age,sexe);
@@ -133,7 +133,7 @@ int main(){
                   }
                   case 2 :
                   {
-                  cout <<"Vous voules afficher les CM par numéro d'examen"<<endl;
+                  cout <<"Vous voules afficher les CE par numéro d'examen"<<endl;
                   cout <<"Donnez le numéro d'examen"<<endl;
                   cout<<"~>  ";
                   string num;
@@ -143,7 +143,7 @@ int main(){
                   }
                   case 3:
                   {
-                  cout <<"Vous voules afficher les CM par la date de l'examen"<<endl;
+                  cout <<"Vous voules afficher les CE par la date de l'examen"<<endl;
                   cout <<"Donnez la date de l'examen"<<endl;
                   cout<<"~>  " << endl;
                   string date;

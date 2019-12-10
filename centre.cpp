@@ -328,14 +328,11 @@ list<Examen> Centre::supprimer_Examen(Centre test){
     string numex_sup;
     cin >> numex_sup;
     //Centre test;
-    Examen e;
     list<Examen> ee = test.get_Examens();
     for(auto i=ee.begin(); i!=ee.end(); i++){
         if(i->get_NoExam()==numex_sup){
-            e = Examen(i->get_NoExam(),i->get_Type(),i->get_Date(),i->get_Etat(),i->get_Cliches(),i->get_Rapport());
             i=ee.erase(i);
             test.set_Examens(ee);
-                        
             cout<<"Examen bien supprimé."<<endl;            
         }
     }
@@ -356,11 +353,9 @@ list<Patient> Centre :: supprimer_Patient(Centre test2){
     cout << "Âge : ";
     int age_supp;
     cin >> age_supp;
-    Patient p;
     list<Patient> pp = test2.get_Patients();
     for(auto i=pp.begin(); i!=pp.end(); i++){
         if(i->get_Name()==nom_sup && i->get_FirstName()==prenom_sup && i->get_Sexe()==sexe_supp && i->get_Age()==age_supp){
-        p = Patient(i->get_Name(),i->get_FirstName(),i->get_Age(),i->get_Sexe(),i->get_Examenss());
         i=pp.erase(i);
         test2.set_Patients(pp);
         cout<<"Patient bien supprimé."<<endl;

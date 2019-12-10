@@ -22,7 +22,7 @@ int main(){
 	do {
     cout << "Bienvenu dans le centre de Radiographie : " << nomc << endl;
     cout << "###########  Menu Principal  ###########" << endl;
-		cout << "[#######################################]\n0 : Quitter \n1 : Ajout d'Examen/Patient \n2 : Suppression d'Examen/Patient \n3 : Affichage des caractéristiques des Examens \n4 : Charger/Sauvegarder la liste des radiographies \n[#######################################]" << endl;
+		cout << "[#######################################]\n0 : Quitter \n1 : Ajout d'Examen/Patient \n2 : Suppression d'Examen/Patient \n3 : Affichage des caractéristiques des Examens \n4 : Charger/Exporter la liste des radiographies \n[#######################################]" << endl;
     cout << "~>  ";
     cin >> choice;
         switch(choice){

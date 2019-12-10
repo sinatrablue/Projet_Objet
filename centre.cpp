@@ -89,31 +89,31 @@ list<Examen> Centre::importExamFromFile(){
     string mdpRapport = line;
     getline(file,line); // numéros de clichés, séparés par des virgules
     string numeroCliches = line;
-    //cout << "n° clichés : " << numeroCliches << endl;
-    // Séparation des n° de clichés (code un peu volé sur un forum)
+    // Séparation des n° de clichés
     list<Cliche> l;
-    string delim = ",";
-    size_t pos = 0;
-    string token;
-    while ((pos = numeroCliches.find(delim)) != std::string::npos) {
-    token = numeroCliches.substr(0, pos);
+    string delim = ","; // délimiteur, chez nous une virgule
+    size_t pos = 0; // position initiale de lecture
+    string token; // variable qui prendra chaque numéro sur la ligne 1 par 1
+    while ((pos = numeroCliches.find(delim)) != std::string::npos) {  // tant qu'on trouve des délimiteurs (ce qui explique que dans le fichier exam.txt on ai aussi une virgule après le dernier numéro)
+    token = numeroCliches.substr(0, pos);  // le token prend la valeur du numéro de cliché n de la ligne
     //cout << "token : " << token << endl;
-    Cliche c = Cliche(token);
-    l.push_back(c);
+    Cliche c = Cliche(token); // on initialise un objet de type Cliche avec le numéro
+    l.push_back(c); // On l'inclue dans la liste de clichés de l'examen
     numeroCliches.erase(0, pos + delim.length());
     }
 
-    Rapport r = Rapport(contentRapport, mdpRapport);
-    Examen ex = Examen(numeroExam, typeExam, dateExam, etatExam, l, r);
+    Rapport r = Rapport(contentRapport, mdpRapport); // initialisation d'un rapport avec les données recueillies
+    Examen ex = Examen(numeroExam, typeExam, dateExam, etatExam, l, r); // initialisation de l'examen
     cout << "Examen bien créé" << endl;
 
-    ex.ajouter_Examen(listExam);
+    ex.ajouter_Examen(listExam); // ajout de l'examen à la liste du centre
 
     file.close();
-    return listExam;
+    return listExam; // on retourne la liste d'Exams du centre
 }
 
 void Centre::exportExamToFile(std::list<Examen> listExamen){
+    // Le même procédé et le même raisonnement que la fonction précédente mais dans le sens inverse, on prend dans la base du centre pour écrire dans le fichier
     string filename;
     cout << "Donnez le nom du fichier dans lequel exporter" << endl;
     cin >> filename;
@@ -141,8 +141,6 @@ void Centre::exportExamToFile(std::list<Examen> listExamen){
         }
         string reportContent = it->get_Rapport().get_Rapport();
         string listCliche;
-        auto taille_it = it->get_Cliches().size();
-        //cout << "Taille de la liste de Clichés : " << taille_it << endl;
         int j = 0;
         auto cc = it->get_Cliches();
         for(auto itr=cc.begin(); itr!=cc.end(); itr++){
@@ -184,9 +182,7 @@ void Centre::importPatientFromFile(){
     string lineE = line;
 
     list<Examen>E;
-    // Ensuite c'est l'initialisation de la lecture n° par n° sur la liste avec la virgule comme délimiteur
-    // J'ai clairement cherché sur internet et volé sur les forums, considère juste que "token" c'est le n°
-    // de chaque exam sur la liste tour à tour...
+    // Initialisation de la lecture n° par n° sur la liste avec la virgule comme délimiteur
     string delim = ",";
     size_t pos = 0;
     string token;
@@ -205,7 +201,7 @@ void Centre::importPatientFromFile(){
         E.push_back(e); // On met l'examen en question dans la liste du patient
         verif+=1;
         //cout << "Taille de la liste d'exams à mettre dans le patient : " << E.size() << endl;
-        lineE.erase(0, pos + delim.length()); // Je sais pas trop mais c'est pour faire boucler le while
+        lineE.erase(0, pos + delim.length());
     }
     if(verif!=E.size()){
       cout << "Attention, problème potentiel dans la liste d'Examens de ce patient" << endl;
@@ -226,7 +222,7 @@ void Centre ::car_pat(std::string N, std::string P, int A, std::string S){
 
     list <Patient> ls_p = get_Patients();
     list<Examen> E_p= get_Examens();
-    if (ls_p.size() == 0 || E_p.size() == 0)
+    if (ls_p.size() == 0 && E_p.size() == 0)
     {
         cout<<"Il n'y a aucun patient et Examen dans la base de donnée"<<endl;
     }
@@ -235,14 +231,14 @@ void Centre ::car_pat(std::string N, std::string P, int A, std::string S){
     for(list<Patient>::iterator it=ls_p.begin(); it!=ls_p.end(); it++){
         if (it->get_FirstName()==P && it->get_Name() ==N && it->get_Age()==A && it->get_Sexe()==S){
             list<Examen> E=it->get_Examenss();
-            Patient pat_choisi(N,P,A,S,E);
-            pat_choisi.affiche();
+            Patient pat_choisi(N,P,A,S,E); // on construit un patient avec les infos passées en arguments
+            pat_choisi.affiche(); // on l'affiche
             cout<<"Voici les caractéristiques des examens de "<< P << endl;
             for (list<Examen>::iterator it = E.begin(); it!=E.end(); it++){
                 string N_ex=it->get_NoExam();
                 for (list<Examen>::iterator it = E_p.begin(); it!=E_p.end(); it++)
                 {
-                    if (N_ex==it->get_NoExam());
+                    if (N_ex==it->get_NoExam()); // on récupère chacun de ses examens dans la base du centre
                     {
                         string numEX= it->get_NoExam();
                         string typeEX= it->get_Type();
@@ -251,7 +247,7 @@ void Centre ::car_pat(std::string N, std::string P, int A, std::string S){
                         string dateEX= it->get_Date();
                         bool etatEX= it->get_Etat();
                         Examen E (numEX,typeEX,dateEX,etatEX,clicheEX,rapportEX);
-                        E.affiche();
+                        E.affiche(); // on affiche les caractéristiques de l'examen
                     }
                 }
             }

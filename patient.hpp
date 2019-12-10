@@ -22,8 +22,6 @@ class Patient
     void set_Examenss(std::list<Examen> examenss);
     void affiche();
     void car_pat(std::string, std::string, int, std::string);
-    //virtual void ajouter();
-    //virtual void supprimer();
     Patient(std::string, std::string, int, std::string, std::list<Examen>);
     Patient();
     ~Patient();

@@ -31,11 +31,11 @@ class Centre
     std::list<Examen> importExamFromFile();
     void exportExamToFile(std::list<Examen>);
     void importPatientFromFile();
-    void car_pat(std::string, std::string, int, std::string);
-    void car_num(std::string);
-    void car_date(std::string);
-    Centre(std::string, std::string, std::string, std::list<Patient>, std::list<Examen>);
-    Centre();
-    ~Centre();
+    void car_pat(std::string, std::string, int, std::string); // caractéristiques d'exam par nom de patient
+    void car_num(std::string); // caractéristiques d'exam par numéro
+    void car_date(std::string); // caractéristiques d'exam par date
+    Centre(std::string, std::string, std::string, std::list<Patient>, std::list<Examen>); // constructeur
+    Centre(); // constructeur par défaut
+    ~Centre(); // destructeur
     virtual void affiche();
 };

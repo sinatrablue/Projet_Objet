@@ -107,5 +107,3 @@ void Patient::supprimer_Patient(list<Patient> &P){
         }
     }
 }
-
-// Idem pour supprimer si besoin

@@ -54,7 +54,7 @@ int main(){
             cin >> supp;
             if (supp=="E")
             {
-                cout << "veuillez saisir le numéro d'examen a supprimer :";
+                cout << "Veuillez saisir le numéro d'examen a supprimer : ";
                 cin >> numex_sup;
                 Examen e;
                 list<Examen> ee = centreTest.get_Examens();
@@ -105,7 +105,7 @@ int main(){
             do
             {
                 cout << "##### Caractéristiques des Examens : CE ####"<<endl;
-                cout << "[###########################################]\n0 : Quitter \n1 : Afficher CM par Patient \n2 : Afficher CM par numéro d'examen \n3 : Afficher CM par date \n [###########################################]" << endl;
+                cout << "[###########################################]\n0 : Quitter \n1 : Afficher CE par Patient \n2 : Afficher CE par numéro d'examen \n3 : Afficher CE par date \n [###########################################]" << endl;
                 cout << "~>  ";
                 cin>>nb;
                 switch(nb){
